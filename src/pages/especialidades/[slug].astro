@@ -15,18 +15,16 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-
-// Mensaje pre-armado para derivar al WhatsApp corporativo
-const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento profesional sobre ${service.title}.`);
+const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento sobre ${service.title}.`);
 ---
 
-<Layout title={`${service.title} | M&L Estudio Jurídico`}>
+<Layout 
+  title={`${service.title} | Abogados y Contadores M&L`}
+  description={service.shortDesc}
+  image={service.image}
+>
   
-  <SpecialtyHero 
-    title={service.title} 
-    shortDesc={service.shortDesc} 
-    image={service.image} 
-  />
+  <SpecialtyHero title={service.title} shortDesc={service.shortDesc} image={service.image} />
 
   <SpecialtyDetails 
     details={service.details} 

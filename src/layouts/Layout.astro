@@ -1,47 +1,108 @@
 ---
 // src/layouts/Layout.astro
-import { ClientRouter } from 'astro:transitions';
-import { siteInfo } from '../data/info';
-
-// 1. IMPORTACIÓN DEL CSS GLOBAL (Fundamental para Tailwind)
-import '../styles/global.css';
-
-// 2. IMPORTACIÓN DE COMPONENTES GLOBALES
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Chatbot from '../components/Chatbot.astro';
+import { siteInfo } from '../data/info';
+import '../styles/global.css';
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
-const { title } = Astro.props;
+
+const { 
+  title, 
+  description = "Estudio Jurídico y Contable M&L en Avellaneda. Especialistas en Derecho Civil, Familia, Laboral, Previsional y Gestión Contable para PyMES y Particulares.",
+  image = "/logo.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.estudiojuridicocontableml.com.ar');
+
+// SCHEMA MARKUP (JSON-LD): Esto es lo que leen las IAs (ChatGPT, Gemini, etc) para recomendarte.
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Estudio Jurídico Contable M&L",
+  "image": new URL(image, canonicalURL).toString(),
+  "@id": canonicalURL.toString(),
+  "url": canonicalURL.toString(),
+  "telephone": siteInfo.contact.whatsapp,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Pres. Bartolomé Mitre 2443",
+    "addressLocality": "Avellaneda",
+    "addressRegion": "Buenos Aires",
+    "postalCode": "B1870",
+    "addressCountry": "AR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.6702, // Reemplaza con tus coordenadas exactas
+    "longitude": -58.3553
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "12:00",
+    "closes": "18:00"
+  },
+  "priceRange": "$$",
+  "knowsAbout": [
+    "Derecho de Familia",
+    "Derecho Laboral",
+    "Sucesiones",
+    "Monotributo",
+    "Liquidación de Sueldos",
+    "Asesoramiento Contable",
+    "Jubilaciones",
+    "Despidos"
+  ]
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
-<meta charset="UTF-8" />
-    <meta name="description" content={siteInfo.description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <title>{title} | {siteInfo.name}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
 
-    <ClientRouter />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+    <meta property="og:site_name" content="Estudio Jurídico Contable M&L" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   </head>
-  <body class="bg-gray-50 text-gray-900 font-sans antialiased selection:bg-brand-primary selection:text-white">
-    
+  
+  <body class="bg-white text-gray-900 font-sans antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
     <Navbar />
-	<Chatbot />
-    <main class="min-h-screen">
+    
+    <main class="flex-grow">
       <slot />
     </main>
-
+    
+    <Chatbot />
     <Footer />
-
   </body>
+
 </html>
