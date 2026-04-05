@@ -1,0 +1,51 @@
+---
+// src/components/home/Hero.astro
+import { siteInfo } from '../../data/info';
+---
+
+<section class="relative bg-white pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-gray-200">
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(var(--color-brand-dark) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <div class="lg:col-span-7 space-y-8">
+        <div class="inline-flex items-center space-x-4 border border-gray-200 rounded-full px-4 py-2 bg-gray-50">
+          <span class="w-2 h-2 bg-brand-primary rounded-full animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-gray-600">Atención a Particulares y Empresas</span>
+        </div>
+        
+        <h1 class="text-5xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
+          Protección Legal y <br/>
+          <span class="text-brand-primary">Solidez Contable.</span>
+        </h1>
+        
+        <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl">
+          Estructuramos estrategias jurídicas y optimizamos la carga fiscal de su negocio. Más de una década defendiendo el patrimonio de nuestros clientes en Avellaneda y C.A.B.A.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 pt-6">
+          <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20deseo%20agendar%20una%20auditoría%20preliminar.`} target="_blank" class="bg-brand-dark text-white px-8 py-4 rounded font-bold uppercase tracking-widest text-sm hover:bg-brand-primary transition-all text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            Agendar Auditoría
+          </a>
+          <a href="/nosotros" class="border border-gray-300 text-gray-900 px-8 py-4 rounded font-bold uppercase tracking-widest text-sm hover:border-brand-dark transition-all text-center">
+            Nuestra Firma
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 hidden lg:block">
+        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+          <div class="absolute inset-0 bg-brand-dark/20 z-10 mix-blend-multiply"></div>
+          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" alt="Estudio Jurídico" class="w-full h-full object-cover grayscale opacity-90" loading="eager" />
+          
+          <div class="absolute bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl z-20 border border-gray-100 w-72">
+            <p class="text-sm text-gray-600 font-light italic mb-2">"Nuestro diferencial es mantener un rol activo en cada decisión del cliente."</p>
+            <span class="text-brand-primary font-bold text-xs uppercase tracking-widest block">— Filosofía M&L</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

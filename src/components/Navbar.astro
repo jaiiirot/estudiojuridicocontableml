@@ -1,6 +1,7 @@
 ---
 // src/components/Navbar.astro
 import { siteInfo } from '../data/info';
+import Icon from './ui/Icon.astro';
 
 const navLinks = [
   { name: 'Inicio', url: '/' },
@@ -15,27 +16,50 @@ const navLinks = [
     <div class="flex justify-between h-20 items-center">
       
       <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="text-2xl font-serif font-bold text-brand-dark tracking-tight">
-          M&L <span class="text-xs font-sans font-normal text-gray-400 hidden sm:inline-block ml-2 uppercase tracking-widest border-l border-gray-300 pl-2">Estudio Jurídico</span>
+        <a href="/" class="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Logo Estudio M&L" 
+            class="h-10 w-auto group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="flex flex-col justify-center">
+            <span class="text-xl md:text-2xl font-serif font-bold text-brand-dark tracking-tight leading-none">
+              M&L
+            </span>
+            <span class="text-[0.65rem] md:text-xs font-sans font-medium text-gray-500 uppercase tracking-widest leading-none mt-1">
+              Estudio Jurídico
+            </span>
+          </div>
         </a>
       </div>
 
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
         {navLinks.map((link) => (
           <a href={link.url} class="text-gray-600 hover:text-brand-primary font-medium transition-colors text-sm uppercase tracking-wide">
             {link.name}
           </a>
         ))}
         
+        <div class="h-6 w-px bg-gray-200"></div> <div class="flex items-center space-x-4">
+          <a href={`https://instagram.com/${siteInfo.social.instagram.replace('@', '')}`} target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-brand-primary transition-colors">
+            <Icon name="instagram" class="w-5 h-5" />
+          </a>
+          <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-gray-400 hover:text-[#25D366] transition-colors">
+            <Icon name="whatsapp" class="w-5 h-5" />
+          </a>
+        </div>
+        
         <a href="/consulta" class="text-brand-primary hover:text-brand-dark transition-colors flex items-center gap-2 border border-brand-primary px-4 py-2 rounded-full">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           <span class="text-sm font-bold uppercase tracking-widest">Consultar IA</span>
         </a>
       </div>
 
       <div class="md:hidden flex items-center gap-4">
-        <a href="/consulta" class="text-brand-primary hover:text-brand-dark transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
+          <Icon name="whatsapp" class="w-6 h-6" />
+        </a>
+        <a href="/consulta" class="text-brand-primary hover:text-brand-dark transition-colors border border-brand-primary rounded-full px-3 py-1 text-xs font-bold uppercase">
+          IA
         </a>
         <button id="mobile-menu-button" type="button" class="text-gray-600 hover:text-brand-primary focus:outline-none" aria-label="Abrir menú">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,19 +72,8 @@ const navLinks = [
   </div>
 
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
-    <div class="px-4 pt-2 pb-6 space-y-2">
-      {navLinks.map((link) => (
-        <a href={link.url} class="block px-3 py-3 rounded-md text-sm font-medium uppercase tracking-wide text-gray-700 hover:text-brand-primary hover:bg-gray-50 border-b border-gray-50 last:border-0">
-          {link.name}
-        </a>
-      ))}
-      <a href="/consulta" class="block px-3 py-3 rounded-md text-sm font-bold uppercase tracking-wide text-brand-primary hover:bg-gray-50">
-        Consultar Asistente IA
-      </a>
     </div>
-  </div>
 </nav>
-
 <div class="h-20"></div>
 
 <script>
