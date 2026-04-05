@@ -1,0 +1,230 @@
+---
+// src/pages/consulta.astro
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { siteInfo } from '../data/info';
+---
+
+<Layout title="Análisis Preliminar">
+  
+  <header class="bg-brand-dark pt-32 pb-16 border-b-8 border-brand-primary">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-brand-light font-bold tracking-widest uppercase text-sm mb-4 block">Inteligencia Artificial M&L</span>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+        Análisis Legal Preliminar
+      </h1>
+      <p class="text-lg text-gray-300 font-light max-w-2xl mx-auto">
+        Ingrese su consulta. Nuestro sistema evaluará su situación basándose en nuestra jurisprudencia y servicios para orientarle antes de contactar a un especialista.
+      </p>
+    </div>
+  </header>
+
+  <section class="py-20 bg-white min-h-[55vh]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <form id="consulta-form" class="relative mb-16 transition-opacity duration-500">
+        <input type="text" id="consulta-input" placeholder="Ej: ¿Cuáles son los requisitos para un divorcio?" class="w-full text-xl md:text-2xl font-light text-gray-900 border-b-2 border-gray-300 py-4 focus:outline-none focus:border-brand-primary bg-transparent placeholder-gray-400 transition-colors" autocomplete="off" autofocus />
+        <button type="submit" class="absolute right-0 top-4 bg-brand-dark text-white px-6 py-2 rounded uppercase text-xs font-bold tracking-widest hover:bg-brand-primary transition-colors shadow-sm">
+          Consultar
+        </button>
+      </form>
+
+      <div id="estado-carga" class="hidden flex-col items-center justify-center py-16">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-3 h-3 bg-brand-primary rounded-full animate-bounce"></div>
+          <div class="w-3 h-3 bg-brand-primary rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+          <div class="w-3 h-3 bg-brand-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+        </div>
+        <span class="text-brand-dark font-medium tracking-wide uppercase text-sm">Procesando jurisprudencia e información...</span>
+      </div>
+
+      <div id="estado-resultado" class="hidden bg-gray-50 p-8 md:p-12 rounded-2xl shadow-sm border border-gray-200">
+        </div>
+
+      <div id="estado-limite" class="hidden flex-col items-center justify-center py-10 text-center border-t border-gray-100">
+        <div class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mb-6 border border-brand-primary/20">
+          <span class="text-2xl font-serif font-bold text-brand-primary">!</span>
+        </div>
+        <h3 class="text-3xl font-serif font-bold text-brand-dark mb-4">Análisis Personalizado Requerido</h3>
+        <p class="text-gray-600 mb-8 max-w-lg mx-auto text-lg leading-relaxed">
+          Ha alcanzado el límite de consultas preliminares. Para brindarle la precisión legal o contable que su caso exige, un especialista de nuestro equipo debe evaluar los detalles concretos.
+        </p>
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20he%20realizado%20consultas%20en%20su%20web%20y%20deseo%20hablar%20con%20un%20profesional%20sobre%20mi%20caso.`} target="_blank" class="inline-block bg-brand-primary text-white px-10 py-4 rounded font-bold uppercase tracking-widest text-sm hover:bg-brand-secondary transition-colors shadow-lg">
+          Contactar Especialista por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style is:global>
+  #estado-resultado h3 {
+    color: var(--color-brand-dark);
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  #estado-resultado p {
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+    font-size: 1.125rem;
+  }
+
+  #estado-resultado strong {
+    color: var(--color-brand-primary);
+    font-weight: 600;
+  }
+
+  #estado-resultado ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #f3f4f6;
+  }
+
+  #estado-resultado li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #4b5563;
+  }
+
+  #estado-resultado li::before {
+    content: "■";
+    color: var(--color-brand-primary);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.5rem;
+    line-height: 1.75rem;
+  }
+
+  #estado-resultado hr {
+    border: none;
+    border-top: 2px solid var(--color-brand-primary);
+    margin: 3rem 0 2rem 0;
+    opacity: 0.2;
+  }
+
+  .cta-whatsapp {
+    display: block;
+    width: 100%;
+    background-color: var(--color-brand-dark);
+    color: white;
+    text-align: center;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-whatsapp:hover {
+    background-color: var(--color-brand-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('consulta-form');
+    const input = document.getElementById('consulta-input') as HTMLInputElement;
+    const loadingState = document.getElementById('estado-carga');
+    const resultState = document.getElementById('estado-resultado');
+    const limitState = document.getElementById('estado-limite');
+
+    if (!form || !input) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+    
+    const executeSearch = async (query: string) => {
+      
+      // COMANDO OCULTO PARA DESARROLLADOR: /reset
+      if (query === '/reset') {
+        localStorage.removeItem('ml_ai_uses');
+        alert('Comando ejecutado: El contador de consultas de IA ha sido reiniciado a 0.');
+        input.value = '';
+        return;
+      }
+
+      let uses = parseInt(localStorage.getItem('ml_ai_uses') || '0');
+      
+      if (uses >= 3) {
+        form.classList.add('hidden'); // Oculta el buscador
+        resultState?.classList.add('hidden');
+        loadingState?.classList.add('hidden');
+        limitState?.classList.remove('hidden');
+        limitState?.classList.add('flex');
+        return;
+      }
+
+      form.classList.add('hidden'); // Desaparece el componente buscador de la web al enviar
+      resultState?.classList.add('hidden');
+      limitState?.classList.add('hidden');
+      loadingState?.classList.remove('hidden');
+      loadingState?.classList.add('flex');
+
+      try {
+        const response = await fetch('/api/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+
+        loadingState?.classList.add('hidden');
+        loadingState?.classList.remove('flex');
+        resultState?.classList.remove('hidden');
+
+        if (response.ok) {
+          const data = await response.json();
+          if (resultState) {
+            // @ts-ignore
+            resultState.innerHTML = marked.parse(data.answer);
+          }
+          localStorage.setItem('ml_ai_uses', (uses + 1).toString());
+        } else {
+          if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error en la conexión. Por favor, intente contactarnos vía WhatsApp.</p>';
+        }
+      } catch (error) {
+        loadingState?.classList.add('hidden');
+        resultState?.classList.remove('hidden');
+        if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error de red. Verifique su conexión o contáctenos directamente.</p>';
+      }
+    };
+
+    if (initialQuery) {
+      input.value = initialQuery;
+      executeSearch(initialQuery);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = input.value.trim();
+      if (query) {
+        window.history.replaceState({}, '', `/consulta?q=${encodeURIComponent(query)}`);
+        executeSearch(query);
+      }
+    });
+  });
+</script>

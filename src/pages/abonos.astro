@@ -6,15 +6,15 @@ import { siteInfo } from '../data/info';
 
 // Datos específicos de la página hardcodeados temporalmente aquí (idealmente irían en /data/abonos.ts)
 const tiposAbonos = [
-  "Abonos jurídicos", // [cite: 98]
-  "Abonos contables", // [cite: 99]
-  "Abonos integrales" // [cite: 100]
+  "Abonos jurídicos",
+  "Abonos contables",
+  "Abonos integrales"
 ];
 
 const publicoObjetivo = [
-  "Particulares", // [cite: 101]
-  "PYMES", // [cite: 102]
-  "Empresas" // [cite: 103]
+  "Particulares", 
+  "PYMES",
+  "Empresas" 
 ];
 ---
 
@@ -22,7 +22,7 @@ const publicoObjetivo = [
   
   <header class="bg-gray-50 pt-32 pb-16 border-b border-gray-200">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Abonos [cite: 96]</h1>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Abonos</h1>
       <p class="text-lg text-gray-600 font-light">
         Tranquilidad y respaldo continuo. Diseñamos planes de asesoramiento mensual adaptados al tamaño y las necesidades específicas de tu estructura.
       </p>
@@ -56,7 +56,7 @@ const publicoObjetivo = [
           </div>
           
           <div class="pt-8 text-center sm:text-left mt-8 border-t border-gray-100">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Consultá tu plan a medida [cite: 104]</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Consultá tu plan a medida</h3>
             <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20quisiera%20consultar%20sobre%20los%20abonos`} 
                class="inline-block bg-brand-primary text-white px-8 py-3 rounded-full font-medium hover:bg-brand-secondary transition-colors">
               Solicitar Presupuesto
@@ -67,6 +67,5 @@ const publicoObjetivo = [
       </div>
     </div>
   </section>
-
-  <Footer />
+  
 </Layout>

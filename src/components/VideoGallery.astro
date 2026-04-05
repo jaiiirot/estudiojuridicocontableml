@@ -3,37 +3,23 @@
 import { videoReels } from '../data/videos';
 import { siteInfo } from '../data/info';
 ---
-
 <section class="py-24 bg-gray-900 text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-800 pb-8">
-      <div class="max-w-2xl">
-        <span class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-2 block">Capacitación y Novedades</span>
-        <h2 class="text-4xl font-serif font-bold text-white">Información legal y contable a tu alcance</h2>
-      </div>
-      <a href={`https://instagram.com/${siteInfo.social.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="mt-6 md:mt-0 text-gray-300 hover:text-white border border-gray-700 hover:border-brand-primary px-6 py-3 rounded-full transition-all text-sm font-medium">
-        Ver perfil de Instagram
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
       {videoReels.map((video) => (
         <a href={`https://instagram.com/${siteInfo.social.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" class="group block h-full">
           <div class="bg-gray-800 rounded-xl overflow-hidden h-full border border-gray-700 hover:border-brand-primary transition-colors flex flex-col relative">
             
-            <div class="h-48 bg-gray-900 relative flex items-center justify-center">
-              <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10"></div>
+            <div class="h-48 bg-gray-900 relative flex items-center justify-center overflow-hidden">
+              <img src={video.thumbnail} alt={video.title} class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity" loading="lazy" />
+              
               <div class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center z-20 group-hover:scale-110 group-hover:bg-brand-primary group-hover:border-brand-primary transition-all">
                 <svg class="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"></path></svg>
               </div>
-              <span class="absolute top-4 left-4 z-20 bg-brand-dark text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide">
-                {video.category}
-              </span>
             </div>
 
             <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-lg font-bold font-serif mb-3 group-hover:text-brand-primary transition-colors line-clamp-2">
+              <span class="text-brand-primary text-xs font-bold uppercase tracking-wide mb-2 block">{video.category}</span>
+              <h3 class="text-lg font-bold font-serif mb-3 group-hover:text-white transition-colors line-clamp-2">
                 {video.title}
               </h3>
               <p class="text-sm text-gray-400 font-light leading-relaxed flex-grow">
@@ -44,6 +30,5 @@ import { siteInfo } from '../data/info';
         </a>
       ))}
     </div>
-
   </div>
 </section>

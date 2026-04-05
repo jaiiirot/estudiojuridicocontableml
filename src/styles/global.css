@@ -1,12 +1,21 @@
+/* src/styles/global.css */
 @import "tailwindcss";
 
 @theme {
-  /* Colores de tu marca */
+  /* Paleta Corporativa Principal */
   --color-brand-primary: #960003;
   --color-brand-secondary: #650101;
   --color-brand-dark: #500712;
+  
+  /* NUEVO: Color sutil para fondos de tarjetas o iconos (reemplaza a bg-red-50) */
+  --color-brand-light: #fef2f2; 
 
   /* Tipografías */
   --font-sans: "Inter", sans-serif;
   --font-serif: "Playfair Display", serif;
+}
+
+/* Mejora de rendimiento: Scroll suave nativo */
+html {
+  scroll-behavior: smooth;
 }

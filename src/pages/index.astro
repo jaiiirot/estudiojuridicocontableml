@@ -3,7 +3,7 @@
 import Layout from '../layouts/Layout.astro';
 import VideoGallery from '../components/VideoGallery.astro';
 import { siteInfo } from '../data/info';
-import { services2 } from '../data/services';
+import { services } from '../data/services';
 ---
 
 <Layout title="Estudio Jurídico Contable">
@@ -11,7 +11,6 @@ import { services2 } from '../data/services';
   <section class="relative bg-white pt-32 pb-24 lg:pt-48 lg:pb-40 border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
         <div class="space-y-8 pr-0 lg:pr-12">
           <span class="text-brand-primary font-bold tracking-widest uppercase text-sm border-l-4 border-brand-primary pl-4">
             Defensa, Estrategia y Resultados
@@ -27,54 +26,92 @@ import { services2 } from '../data/services';
             <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="bg-brand-dark text-white px-8 py-4 rounded font-medium hover:bg-brand-primary transition-colors text-center text-sm uppercase tracking-wide">
               Agendar Consulta
             </a>
-            <a href="/nosotros" class="border border-gray-300 text-gray-900 px-8 py-4 rounded font-medium hover:border-gray-900 transition-colors text-center text-sm uppercase tracking-wide">
+            <a href="/nosotros" class="border border-gray-300 text-gray-900 px-8 py-4 rounded font-medium hover:border-gray-900 transition-colors text-center text-sm uppercase tracking-wide bg-gray-50">
               Conocer el Estudio
             </a>
           </div>
         </div>
-
-        <div class="hidden lg:block relative h-full min-h-[400px]">
-          <div class="absolute inset-0 bg-gray-50 rounded-2xl border border-gray-200 shadow-inner"></div>
-          <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-primary rounded-2xl mix-blend-multiply opacity-10"></div>
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-12">
-             <span class="block text-4xl font-serif font-bold text-gray-300 mb-4">"Mantenemos un rol activo en cada decisión."</span>
-             <span class="block text-sm font-bold text-brand-primary uppercase tracking-widest">— Nuestro Diferencial</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <section class="py-24 bg-gray-50">
+<section class="py-24 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="mb-16">
-        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Áreas de Práctica</h2>
-        <div class="w-24 h-1 bg-brand-primary"></div>
+      <div class="text-center mb-16">
+        <span class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-2 block">Proceso Transparente</span>
+        <h2 class="text-4xl font-serif font-bold text-gray-900">Nuestra Metodología de Trabajo</h2>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Comprendemos la urgencia y sensibilidad de sus consultas. Nuestro proceso está diseñado para brindar respuestas precisas desde el primer contacto.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+        <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gray-100 z-0"></div>
+
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="w-24 h-24 bg-brand-light rounded-full flex items-center justify-center border-4 border-white shadow-sm mb-6">
+            <span class="text-2xl font-serif font-bold text-brand-primary">01</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Auditoría Inicial</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Evaluamos la viabilidad legal y contable de su caso en una primera entrevista detallada, estableciendo expectativas claras.</p>
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="w-24 h-24 bg-brand-primary rounded-full flex items-center justify-center border-4 border-white shadow-md mb-6">
+            <span class="text-2xl font-serif font-bold text-white">02</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Desarrollo de Estrategia</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Trazamos una ruta de acción administrativa o judicial. En el área contable, planificamos la estructuración fiscal y societaria.</p>
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="w-24 h-24 bg-brand-dark rounded-full flex items-center justify-center border-4 border-white shadow-md mb-6">
+            <span class="text-2xl font-serif font-bold text-white">03</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Ejecución y Seguimiento</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Mantenemos un rol activo. Usted recibe reportes constantes sobre el estado de sus trámites o el balance de sus cuentas.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-24 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-16 text-center md:text-left flex flex-col md:flex-row justify-between items-end">
+        <div>
+          <span class="text-brand-primary font-bold tracking-widest uppercase text-sm block mb-2">Especialidades</span>
+          <h2 class="text-4xl font-serif font-bold text-gray-900">Áreas de Práctica</h2>
+        </div>
+        <div class="w-24 h-1 bg-brand-primary mt-6 md:mt-0"></div>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {services2.map((service, index) => (
-          <div class="bg-white p-10 border border-gray-200 hover:border-brand-primary transition-colors relative group">
-            <span class="absolute top-10 right-10 text-6xl font-serif font-bold text-gray-100 group-hover:text-gray-50 transition-colors">
-              0{index + 1}
-            </span>
-            <div class="relative z-10">
-              <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p class="text-gray-600 mb-8 font-light leading-relaxed min-h-[4rem]">
-                {service.shortDesc}
-              </p>
-              <ul class="space-y-3 mb-8">
-                {service.items.slice(0, 3).map((item) => (
-                  <li class="flex items-start text-sm text-gray-700">
-                    <span class="mt-1.5 mr-3 block w-1.5 h-1.5 bg-brand-primary"></span>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {services.map((service, index) => (
+          <div class="bg-white p-10 border-t-4 border-t-brand-primary border-l border-r border-b border-gray-200 shadow-sm hover:shadow-xl transition-all flex flex-col">
+            
+            <div class="flex justify-between items-start mb-6">
+              <h3 class="text-3xl font-serif font-bold text-brand-dark leading-tight">{service.title}</h3>
+              <span class="text-2xl font-serif font-bold text-gray-200 opacity-50">0{index + 1}</span>
+            </div>
+
+            <p class="text-gray-700 mb-8 font-light leading-relaxed flex-grow text-lg">
+              {service.shortDesc}
+            </p>
+            
+            <div class="border-t border-gray-100 pt-6">
+              <ul class="space-y-3 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                {service.items.slice(0, 4).map((item) => (
+                  <li class="flex items-start text-sm text-gray-800 font-medium">
+                    <span class="mt-1.5 mr-3 block w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
                     {item}
                   </li>
                 ))}
               </ul>
-              <a href={`/especialidades/${service.id}`} class="inline-block border-b-2 border-brand-primary text-brand-dark font-bold text-sm uppercase tracking-wide pb-1 hover:text-brand-primary transition-colors">
-                Análisis Detallado
+              
+              <a href={`/especialidades/${service.id}`} class="inline-flex items-center text-brand-primary font-bold text-sm uppercase tracking-wider hover:text-brand-dark transition-colors group">
+                Ver Análisis Detallado 
+                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </a>
             </div>
           </div>
