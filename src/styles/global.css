@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colores de tu marca */
+  --color-brand-primary: #960003;
+  --color-brand-secondary: #650101;
+  --color-brand-dark: #500712;
+
+  /* Tipografías */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}

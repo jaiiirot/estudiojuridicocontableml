@@ -1,47 +1,88 @@
 ---
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
+import VideoGallery from '../components/VideoGallery.astro';
 import { siteInfo } from '../data/info';
-import { services1 } from '../data/services';
+import { services2 } from '../data/services';
 ---
 
-<Layout title="Inicio">
-  <section class="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-brand-dark mb-6 tracking-tight">
-        Soluciones legales y contables <span class="text-brand-primary">a tu medida.</span>
-      </h1>
-      <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light">
-        {siteInfo.description}
-      </p>
-      <div class="mt-10 flex justify-center gap-4">
-        <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} class="bg-brand-primary text-white px-8 py-4 rounded-full font-medium hover:bg-brand-secondary transition-colors shadow-lg">
-          Consultar por WhatsApp
-        </a>
+<Layout title="Estudio Jurídico Contable">
+  
+  <section class="relative bg-white pt-32 pb-24 lg:pt-48 lg:pb-40 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        <div class="space-y-8 pr-0 lg:pr-12">
+          <span class="text-brand-primary font-bold tracking-widest uppercase text-sm border-l-4 border-brand-primary pl-4">
+            Defensa, Estrategia y Resultados
+          </span>
+          <h1 class="text-5xl lg:text-7xl font-serif font-bold text-gray-900 leading-tight">
+            Excelencia en <br/>
+            <span class="text-brand-dark">Derecho y Finanzas.</span>
+          </h1>
+          <p class="text-xl text-gray-600 font-light leading-relaxed">
+            Asesoramiento integral especializado para la protección de tu patrimonio, resolución de conflictos familiares y optimización fiscal de tu empresa.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="bg-brand-dark text-white px-8 py-4 rounded font-medium hover:bg-brand-primary transition-colors text-center text-sm uppercase tracking-wide">
+              Agendar Consulta
+            </a>
+            <a href="/nosotros" class="border border-gray-300 text-gray-900 px-8 py-4 rounded font-medium hover:border-gray-900 transition-colors text-center text-sm uppercase tracking-wide">
+              Conocer el Estudio
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden lg:block relative h-full min-h-[400px]">
+          <div class="absolute inset-0 bg-gray-50 rounded-2xl border border-gray-200 shadow-inner"></div>
+          <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-brand-primary rounded-2xl mix-blend-multiply opacity-10"></div>
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full px-12">
+             <span class="block text-4xl font-serif font-bold text-gray-300 mb-4">"Mantenemos un rol activo en cada decisión."</span>
+             <span class="block text-sm font-bold text-brand-primary uppercase tracking-widest">— Nuestro Diferencial</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="py-20 bg-gray-50">
+  <section class="py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-serif font-bold text-brand-dark mb-12 text-center">Nuestras Áreas de Práctica</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services1.map((service) => (
-          <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group">
-            <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition-colors">{service.title}</h3>
-            <p class="text-gray-600 mb-6 text-sm leading-relaxed">{service.shortDesc}</p>
-            <ul class="space-y-2">
-              {service.items.slice(0, 4).map((item) => (
-                <li class="text-sm text-gray-500 flex items-center">
-                  <span class="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+      <div class="mb-16">
+        <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">Áreas de Práctica</h2>
+        <div class="w-24 h-1 bg-brand-primary"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {services2.map((service, index) => (
+          <div class="bg-white p-10 border border-gray-200 hover:border-brand-primary transition-colors relative group">
+            <span class="absolute top-10 right-10 text-6xl font-serif font-bold text-gray-100 group-hover:text-gray-50 transition-colors">
+              0{index + 1}
+            </span>
+            <div class="relative z-10">
+              <h3 class="text-2xl font-serif font-bold text-gray-900 mb-4">{service.title}</h3>
+              <p class="text-gray-600 mb-8 font-light leading-relaxed min-h-[4rem]">
+                {service.shortDesc}
+              </p>
+              <ul class="space-y-3 mb-8">
+                {service.items.slice(0, 3).map((item) => (
+                  <li class="flex items-start text-sm text-gray-700">
+                    <span class="mt-1.5 mr-3 block w-1.5 h-1.5 bg-brand-primary"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href={`/especialidades/${service.id}`} class="inline-block border-b-2 border-brand-primary text-brand-dark font-bold text-sm uppercase tracking-wide pb-1 hover:text-brand-primary transition-colors">
+                Análisis Detallado
+              </a>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
+
+  <VideoGallery />
+
 </Layout>
