@@ -2,79 +2,54 @@
 // src/pages/especialidades/[slug].astro
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
+import SpecialtyHero from '../../components/especialidades/SpecialtyHero.astro';
+import SpecialtyDetails from '../../components/especialidades/SpecialtyDetails.astro';
 import { services } from '../../data/services';
 import { siteInfo } from '../../data/info';
 
-// 1. Astro ejecuta esto en tiempo de compilación para saber qué páginas crear
 export function getStaticPaths() {
   return services.map(service => ({
-    params: { slug: service.id }, // La URL final
-    props: { service },           // Pasamos los datos del servicio a la página
+    params: { slug: service.id },
+    props: { service },
   }));
 }
 
-// 2. Extraemos el servicio actual de las props
 const { service } = Astro.props;
 
-// 3. UX Senior: Pre-armamos el mensaje de WhatsApp para facilitarle la vida al cliente
-const whatsappMensaje = encodeURIComponent(`Hola, quisiera consultar sobre ${service.title}.`);
+// Mensaje pre-armado para derivar al WhatsApp corporativo
+const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento profesional sobre ${service.title}.`);
 ---
 
-<Layout title={service.title}>
+<Layout title={`${service.title} | M&L Estudio Jurídico`}>
   
-  <header class="relative pt-32 pb-24 border-b-8 border-brand-primary overflow-hidden">
-    <img src={service.image} alt={service.title} class="absolute inset-0 w-full h-full object-cover z-0" loading="eager" />
-    <div class="absolute inset-0 bg-brand-dark/90 z-10"></div> <div class="max-w-4xl mx-auto px-4 text-center relative z-20">
-      <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 tracking-tight">
-        {service.title}
-      </h1>
-      <p class="text-xl text-gray-200 font-light max-w-2xl mx-auto leading-relaxed">
-        {service.shortDesc}
+  <SpecialtyHero 
+    title={service.title} 
+    shortDesc={service.shortDesc} 
+    image={service.image} 
+  />
+
+  <SpecialtyDetails 
+    details={service.details} 
+  />
+
+  <section class="py-24 bg-brand-dark text-center border-t-4 border-brand-primary">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">¿Requiere intervención inmediata?</h2>
+      <p class="text-gray-300 font-light text-lg mb-10 max-w-2xl mx-auto">
+        Nuestro equipo de especialistas analizará su caso con absoluta confidencialidad para proponerle la mejor estrategia procesal o administrativa.
       </p>
-    </div>
-  </header>
-
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-16">
-        <h2 class="text-3xl font-serif font-bold text-brand-secondary mb-8 border-b pb-4">
-          Nuestras áreas de intervención
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-          {service.items.map((item) => (
-            <div class="flex items-start group">
-              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-red-50 flex items-center justify-center mr-4 text-brand-primary font-bold group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
-                ✓
-              </span>
-              <p class="text-lg text-gray-700 pt-1 group-hover:text-gray-900 transition-colors">
-                {item}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=${whatsappMensaje}`} 
+           target="_blank" 
+           class="inline-block bg-white text-brand-dark px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-white transition-colors rounded-sm shadow-xl">
+          Contactar por WhatsApp
+        </a>
+        <a href="/consulta" 
+           class="inline-block bg-transparent border border-gray-500 text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-white hover:bg-white/5 transition-colors rounded-sm">
+          Consulta Preliminar (IA)
+        </a>
       </div>
-
-      <div class="bg-gray-50 rounded-2xl p-10 text-center border border-gray-100 shadow-sm">
-        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">¿Necesitás asesoramiento en {service.title}?</h3>
-        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-          Nuestro equipo de especialistas está listo para analizar tu caso con absoluta confidencialidad y proponerte la mejor estrategia.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=${whatsappMensaje}`} 
-             target="_blank" rel="noopener noreferrer"
-             class="bg-brand-primary text-white px-8 py-4 rounded-full font-medium hover:bg-brand-secondary transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-            Consultar por WhatsApp
-          </a>
-          <a href="/contacto" 
-             class="bg-white text-brand-dark border border-gray-300 px-8 py-4 rounded-full font-medium hover:border-brand-primary hover:text-brand-primary transition-all">
-            Ir a formulario de contacto
-          </a>
-        </div>
-      </div>
-
     </div>
   </section>
-  
+
 </Layout>

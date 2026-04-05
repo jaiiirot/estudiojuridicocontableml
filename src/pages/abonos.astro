@@ -2,70 +2,38 @@
 // src/pages/abonos.astro
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import AbonosHero from '../components/abonos/AbonosHero.astro';
+import AbonosList from '../components/abonos/AbonosList.astro';
+import TargetAudience from '../components/abonos/TargetAudience.astro';
 import { siteInfo } from '../data/info';
-
-// Datos específicos de la página hardcodeados temporalmente aquí (idealmente irían en /data/abonos.ts)
-const tiposAbonos = [
-  "Abonos jurídicos",
-  "Abonos contables",
-  "Abonos integrales"
-];
-
-const publicoObjetivo = [
-  "Particulares", 
-  "PYMES",
-  "Empresas" 
-];
 ---
 
-<Layout title="Abonos Mensuales">
+<Layout title="Abonos y Planes | M&L Estudio Jurídico Contable">
   
-  <header class="bg-gray-50 pt-32 pb-16 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Abonos</h1>
-      <p class="text-lg text-gray-600 font-light">
-        Tranquilidad y respaldo continuo. Diseñamos planes de asesoramiento mensual adaptados al tamaño y las necesidades específicas de tu estructura.
+  <AbonosHero />
+  
+  <AbonosList />
+  
+  <TargetAudience />
+
+  <section class="py-24 bg-white text-center border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">Solicite un presupuesto a medida</h2>
+      <p class="text-gray-600 font-light text-lg mb-10 max-w-xl mx-auto">
+        Cada cliente tiene necesidades únicas. Conversemos para estructurar el abono que mejor proteja su rentabilidad y patrimonio.
       </p>
-    </div>
-  </header>
-
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        
-        <div class="space-y-8">
-          <h2 class="text-3xl font-serif font-bold text-brand-dark">Nuestra cobertura</h2>
-          <ul class="space-y-4">
-            {tiposAbonos.map(abono => (
-              <li class="flex items-center text-lg text-gray-700 p-4 bg-gray-50 rounded-lg border-l-4 border-brand-primary">
-                <span class="font-medium">{abono}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="space-y-8">
-          <h2 class="text-3xl font-serif font-bold text-brand-dark">Dirigido a</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {publicoObjetivo.map(publico => (
-              <div class="text-center p-6 border border-gray-100 rounded-xl shadow-sm hover:border-brand-primary hover:shadow-md transition-all">
-                <span class="block text-xl font-bold text-brand-secondary mb-2">{publico}</span>
-              </div>
-            ))}
-          </div>
-          
-          <div class="pt-8 text-center sm:text-left mt-8 border-t border-gray-100">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Consultá tu plan a medida</h3>
-            <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20quisiera%20consultar%20sobre%20los%20abonos`} 
-               class="inline-block bg-brand-primary text-white px-8 py-3 rounded-full font-medium hover:bg-brand-secondary transition-colors">
-              Solicitar Presupuesto
-            </a>
-          </div>
-        </div>
-
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20quisiera%20consultar%20sobre%20los%20abonos%20y%20solicitar%20un%20presupuesto%20a%20medida.`} 
+           target="_blank" 
+           class="inline-block bg-brand-primary text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-brand-dark transition-all duration-300 shadow-md">
+          Cotizar por WhatsApp
+        </a>
+        <a href="/contacto" 
+           class="inline-block bg-white border border-gray-300 text-brand-dark px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-brand-dark hover:bg-gray-50 transition-all duration-300">
+          Enviar Correo
+        </a>
       </div>
     </div>
   </section>
-  
+
 </Layout>

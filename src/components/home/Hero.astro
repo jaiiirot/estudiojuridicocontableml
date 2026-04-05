@@ -3,46 +3,48 @@
 import { siteInfo } from '../../data/info';
 ---
 
-<section class="relative bg-white pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-gray-200">
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(var(--color-brand-dark) 1px, transparent 1px); background-size: 32px 32px;"></div>
-  
+<section class="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-8">
       
-      <div class="lg:col-span-7 space-y-8">
-        <div class="inline-flex items-center space-x-4 border border-gray-200 rounded-full px-4 py-2 bg-gray-50">
-          <span class="w-2 h-2 bg-brand-primary rounded-full animate-pulse"></span>
-          <span class="text-xs font-bold uppercase tracking-widest text-gray-600">Atención a Particulares y Empresas</span>
+      <div class="w-full lg:w-3/5 space-y-10">
+        <div class="border-l-2 border-brand-primary pl-4">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary block">Estudio Jurídico & Contable</span>
+          <span class="text-sm font-light text-gray-500 mt-1 block">Avellaneda — Buenos Aires</span>
         </div>
         
-        <h1 class="text-5xl lg:text-7xl font-serif font-bold text-gray-900 leading-[1.1] tracking-tight">
-          Protección Legal y <br/>
-          <span class="text-brand-primary">Solidez Contable.</span>
+        <h1 class="text-5xl sm:text-6xl lg:text-[5.5rem] font-serif font-bold text-brand-dark leading-[1] tracking-tight">
+          Protegemos su <br />
+          <span class="text-brand-primary italic font-light">patrimonio.</span>
         </h1>
         
-        <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl">
-          Estructuramos estrategias jurídicas y optimizamos la carga fiscal de su negocio. Más de una década defendiendo el patrimonio de nuestros clientes en Avellaneda y C.A.B.A.
+        <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-lg">
+          Estrategia legal implacable y optimización fiscal de precisión. Asumimos sus conflictos para que usted recupere su tranquilidad.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 pt-6">
-          <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20deseo%20agendar%20una%20auditoría%20preliminar.`} target="_blank" class="bg-brand-dark text-white px-8 py-4 rounded font-bold uppercase tracking-widest text-sm hover:bg-brand-primary transition-all text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            Agendar Auditoría
-          </a>
-          <a href="/nosotros" class="border border-gray-300 text-gray-900 px-8 py-4 rounded font-bold uppercase tracking-widest text-sm hover:border-brand-dark transition-all text-center">
-            Nuestra Firma
+        <div class="flex flex-col sm:flex-row gap-6 pt-4">
+          <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20requiero%20una%20auditoría%20legal/contable.`} target="_blank" class="group relative inline-flex items-center justify-center bg-brand-dark text-white px-8 py-4 font-bold uppercase tracking-widest text-xs overflow-hidden transition-all hover:bg-brand-primary">
+            <span class="relative z-10 flex items-center gap-3">
+              Agendar Auditoría
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </span>
           </a>
         </div>
       </div>
 
-      <div class="lg:col-span-5 hidden lg:block">
-        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-          <div class="absolute inset-0 bg-brand-dark/20 z-10 mix-blend-multiply"></div>
-          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" alt="Estudio Jurídico" class="w-full h-full object-cover grayscale opacity-90" loading="eager" />
-          
-          <div class="absolute bottom-8 -left-8 bg-white p-6 rounded-xl shadow-xl z-20 border border-gray-100 w-72">
-            <p class="text-sm text-gray-600 font-light italic mb-2">"Nuestro diferencial es mantener un rol activo en cada decisión del cliente."</p>
-            <span class="text-brand-primary font-bold text-xs uppercase tracking-widest block">— Filosofía M&L</span>
-          </div>
+      <div class="w-full lg:w-2/5 relative">
+        <div class="aspect-[3/4] w-full bg-gray-100 overflow-hidden relative">
+          <div class="absolute inset-0 bg-brand-dark/10 mix-blend-multiply z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" 
+            alt="Firma Legal" 
+            class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" 
+            loading="eager" 
+          />
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-white p-6 border-t-2 border-brand-primary shadow-xl hidden md:block">
+          <p class="text-3xl font-serif font-bold text-brand-dark">+10</p>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mt-1">Años de <br/>Experiencia</p>
         </div>
       </div>
 

@@ -1,80 +1,123 @@
 ---
 // src/components/Navbar.astro
-import { siteInfo } from '../data/info';
 import Icon from './ui/Icon.astro';
 
 const navLinks = [
   { name: 'Inicio', url: '/' },
   { name: 'Nosotros', url: '/nosotros' },
-  { name: 'Abonos', url: '/abonos' },
-  { name: 'Especialidades', url: '/especialidades/derecho-civil-y-comercial' }
+  { name: 'Abonos', url: '/abonos' }
+];
+
+const especialidades = [
+  { name: 'Derecho Civil y Comercial', url: '/especialidades/derecho-civil-y-comercial' },
+  { name: 'Derecho de Familia', url: '/especialidades/derecho-de-familia' },
+  { name: 'Derecho Laboral', url: '/especialidades/derecho-laboral' },
+  { name: 'Derecho Previsional', url: '/especialidades/derecho-previsional' }
 ];
 ---
 
-<nav class="bg-white border-b border-gray-100 fixed w-full z-50 top-0 transition-all duration-300 shadow-sm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-20 items-center">
+<nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 fixed w-full z-50 top-0 transition-all duration-300 shadow-sm">
+  <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-24 items-center">
       
       <div class="flex-shrink-0 flex items-center">
         <a href="/" class="flex items-center gap-3 group">
-          <img 
-            src="/logo.png" 
-            alt="Logo Estudio M&L" 
-            class="h-10 w-auto group-hover:scale-105 transition-transform duration-300"
-          />
-          <div class="flex flex-col justify-center">
-            <span class="text-xl md:text-2xl font-serif font-bold text-brand-dark tracking-tight leading-none">
-              M&L
-            </span>
-            <span class="text-[0.65rem] md:text-xs font-sans font-medium text-gray-500 uppercase tracking-widest leading-none mt-1">
-              Estudio Jurídico
-            </span>
+          <img src="/logo.png" alt="Logo Estudio M&L" class="h-12 md:h-14 w-auto group-hover:scale-105 transition-transform duration-500" />
+          <div class="flex flex-col justify-center hidden sm:flex">
+            <span class="text-xl md:text-2xl font-serif font-bold text-brand-dark tracking-tight leading-none mb-1">M&L</span>
+            <span class="text-[0.60rem] md:text-[0.65rem] font-sans font-bold text-gray-400 uppercase tracking-[0.2em] leading-none">Estudio Jurídico</span>
           </div>
         </a>
       </div>
 
-      <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+      <div class="hidden lg:flex items-center space-x-8">
         {navLinks.map((link) => (
-          <a href={link.url} class="text-gray-600 hover:text-brand-primary font-medium transition-colors text-sm uppercase tracking-wide">
+          <a href={link.url} class="text-gray-600 hover:text-brand-primary font-medium transition-colors text-xs uppercase tracking-[0.1em] relative group">
             {link.name}
+            <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
         ))}
         
-        <div class="h-6 w-px bg-gray-200"></div> <div class="flex items-center space-x-4">
-          <a href={`https://instagram.com/${siteInfo.social.instagram.replace('@', '')}`} target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-brand-primary transition-colors">
-            <Icon name="instagram" class="w-5 h-5" />
-          </a>
-          <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-gray-400 hover:text-[#25D366] transition-colors">
-            <Icon name="whatsapp" class="w-5 h-5" />
-          </a>
+        <div class="relative group h-24 flex items-center">
+          <button class="text-gray-600 group-hover:text-brand-primary font-medium transition-colors text-xs uppercase tracking-[0.1em] flex items-center gap-1 focus:outline-none">
+            Especialidades
+            <svg class="w-3 h-3 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute top-24 left-1/2 -translate-x-1/2 w-64 bg-white border border-gray-100 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+            <div class="h-1 w-full bg-brand-primary"></div>
+            <div class="py-2">
+              {especialidades.map((esp) => (
+                <a href={esp.url} class="block px-6 py-3 text-sm text-gray-600 hover:bg-gray-50 hover:text-brand-primary transition-colors border-b border-gray-50 last:border-0">
+                  {esp.name}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
         
-        <a href="/consulta" class="text-brand-primary hover:text-brand-dark transition-colors flex items-center gap-2 border border-brand-primary px-4 py-2 rounded-full">
-          <span class="text-sm font-bold uppercase tracking-widest">Consultar IA</span>
-        </a>
+        <div class="h-8 w-px bg-gray-200"></div> 
+        
+        <div class="flex items-center space-x-4">
+          <a href="https://www.instagram.com/estudiojuridicocontableml" target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-brand-primary transition-transform hover:-translate-y-1">
+            <Icon name="instagram" class="w-[18px] h-[18px]" />
+          </a>
+          <a href="https://www.tiktok.com/@majomiguelez" target="_blank" aria-label="TikTok" class="text-gray-400 hover:text-black transition-transform hover:-translate-y-1">
+            <Icon name="tiktok" class="w-[18px] h-[18px]" />
+          </a>
+          <a href="https://www.linkedin.com/company/estudiojuridicocontableml" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-[#0a66c2] transition-transform hover:-translate-y-1">
+            <Icon name="linkedin" class="w-[18px] h-[18px]" />
+          </a>
+          <a href="https://wa.me/5491127890450" target="_blank" aria-label="WhatsApp" class="text-gray-400 hover:text-[#25D366] transition-transform hover:-translate-y-1">
+            <Icon name="whatsapp" class="w-[18px] h-[18px]" />
+          </a>
+          
+          <a href="/consulta" class="text-brand-dark hover:text-brand-primary transition-colors flex items-center gap-2 border border-gray-200 hover:border-brand-primary px-4 py-2 rounded-full ml-2">
+            <Icon name="search" class="w-4 h-4" />
+            <span class="text-[11px] font-bold uppercase tracking-widest">Buscador</span>
+          </a>
+        </div>
       </div>
 
-      <div class="md:hidden flex items-center gap-4">
-        <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
+      <div class="lg:hidden flex items-center gap-4">
+        <a href="https://wa.me/5491127890450" target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
           <Icon name="whatsapp" class="w-6 h-6" />
         </a>
-        <a href="/consulta" class="text-brand-primary hover:text-brand-dark transition-colors border border-brand-primary rounded-full px-3 py-1 text-xs font-bold uppercase">
-          IA
+        <a href="/consulta" class="text-brand-primary border border-brand-primary p-1.5 rounded-md hover:bg-brand-primary hover:text-white transition-colors" aria-label="Buscador">
+          <Icon name="search" class="w-5 h-5" />
         </a>
-        <button id="mobile-menu-button" type="button" class="text-gray-600 hover:text-brand-primary focus:outline-none" aria-label="Abrir menú">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button id="mobile-menu-button" type="button" class="text-gray-800 hover:text-brand-primary focus:outline-none ml-1" aria-label="Abrir menú">
+          <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" /></svg>
         </button>
       </div>
 
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 shadow-2xl absolute w-full transition-all duration-300 origin-top h-screen overflow-y-auto pb-32">
+    <div class="px-6 pt-4 space-y-2">
+      {navLinks.map((link) => (
+        <a href={link.url} class="block px-4 py-3 text-sm font-bold uppercase tracking-widest text-gray-700 hover:text-brand-primary border-b border-gray-50">
+          {link.name}
+        </a>
+      ))}
+      <div class="px-4 py-3 border-b border-gray-50">
+        <span class="text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 block">Especialidades</span>
+        <div class="pl-4 border-l-2 border-brand-primary/20 space-y-3 mt-3">
+          {especialidades.map((esp) => (
+            <a href={esp.url} class="block text-sm text-gray-500 hover:text-brand-primary">{esp.name}</a>
+          ))}
+        </div>
+      </div>
+      <div class="px-4 py-6 flex gap-6">
+        <a href="https://www.instagram.com/estudiojuridicocontableml" target="_blank" class="text-gray-400 hover:text-brand-primary"><Icon name="instagram" class="w-6 h-6" /></a>
+        <a href="https://www.tiktok.com/@majomiguelez" target="_blank" class="text-gray-400 hover:text-black"><Icon name="tiktok" class="w-6 h-6" /></a>
+        <a href="https://www.linkedin.com/company/estudiojuridicocontableml" target="_blank" class="text-gray-400 hover:text-[#0a66c2]"><Icon name="linkedin" class="w-6 h-6" /></a>
+      </div>
     </div>
+  </div>
 </nav>
-<div class="h-20"></div>
+
+<div class="h-24"></div>
 
 <script>
   document.addEventListener('astro:page-load', () => {
