@@ -1,0 +1,47 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import { siteInfo } from '../data/info';
+import { services1 } from '../data/services';
+---
+
+<Layout title="Inicio">
+  <section class="relative bg-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <h1 class="text-5xl md:text-7xl font-serif font-bold text-brand-dark mb-6 tracking-tight">
+        Soluciones legales y contables <span class="text-brand-primary">a tu medida.</span>
+      </h1>
+      <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light">
+        {siteInfo.description}
+      </p>
+      <div class="mt-10 flex justify-center gap-4">
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} class="bg-brand-primary text-white px-8 py-4 rounded-full font-medium hover:bg-brand-secondary transition-colors shadow-lg">
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-serif font-bold text-brand-dark mb-12 text-center">Nuestras Áreas de Práctica</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services1.map((service) => (
+          <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group">
+            <h3 class="text-xl font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition-colors">{service.title}</h3>
+            <p class="text-gray-600 mb-6 text-sm leading-relaxed">{service.shortDesc}</p>
+            <ul class="space-y-2">
+              {service.items.slice(0, 4).map((item) => (
+                <li class="text-sm text-gray-500 flex items-center">
+                  <span class="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

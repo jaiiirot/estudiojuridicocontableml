@@ -1,0 +1,52 @@
+---
+// src/pages/nosotros.astro
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { siteInfo } from '../data/info';
+---
+
+<Layout title="Nosotros">
+  
+  <header class="bg-gray-50 pt-24 pb-16 border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Nosotros</h1>
+      <p class="text-lg text-gray-600 font-light">
+        Conocé quiénes somos y cómo podemos ayudarte a resolver tus conflictos.
+      </p>
+    </div>
+  </header>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="text-center">
+        <h2 class="text-3xl font-serif font-bold text-brand-dark mb-6">Nuestra Ubicación y Enfoque</h2>
+        <p class="text-xl text-gray-700 font-light leading-relaxed">
+          Somos un estudio jurídico contable ubicado en Avellaneda a 10 minutos de C.A.B.A. [cite: 312, 313]
+        </p>
+      </div>
+
+      <hr class="border-gray-100" />
+
+      <div class="bg-gray-50 p-10 rounded-2xl border-l-4 border-brand-primary">
+        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">Nuestro Objetivo</h3>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Nuestro objetivo es asesorar y brindarle a nuestros clientes una solución a sus necesidades y problemas jurídicos, legales, contables y económicos para particulares, PyMES y empresas. [cite: 314]
+        </p>
+      </div>
+
+      <div class="bg-brand-dark text-white p-10 rounded-2xl shadow-lg relative overflow-hidden">
+        <div class="relative z-10">
+          <h3 class="text-2xl font-serif font-bold mb-4 text-brand-primary">Nuestro Diferencial</h3>
+          <p class="text-lg text-gray-200 font-light leading-relaxed italic">
+            "Nuestro diferencial es la calidez con la que recibimos a cada cliente, manteniendo un rol activo, asegurándonos de que comprendan cada alternativa y acompañándolos en la decisión final." [cite: 315]
+          </p>
+        </div>
+        <div class="absolute -bottom-10 -right-10 text-9xl opacity-5">⚖️</div>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
