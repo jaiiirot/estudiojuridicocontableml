@@ -1,5 +1,9 @@
 ---
 // src/layouts/Layout.astro
+
+// 1. IMPORTAMOS EL ROUTER DE ASTRO (ESTA ERA LA PIEZA FALTANTE)
+import { ClientRouter } from 'astro:transitions'; 
+
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Chatbot from '../components/Chatbot.astro';
@@ -20,7 +24,6 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.estudiojuridicocontableml.com.ar');
 
-// SCHEMA MARKUP (JSON-LD): Esto es lo que leen las IAs (ChatGPT, Gemini, etc) para recomendarte.
 const schema = {
   "@context": "https://schema.org",
   "@type": "LegalService",
@@ -39,7 +42,7 @@ const schema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": -34.6702, // Reemplaza con tus coordenadas exactas
+    "latitude": -34.6702, 
     "longitude": -58.3553
   },
   "openingHoursSpecification": {
@@ -72,6 +75,8 @@ const schema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     
+    <ClientRouter />
+
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
 
@@ -104,5 +109,4 @@ const schema = {
     <Chatbot />
     <Footer />
   </body>
-
 </html>
