@@ -143,9 +143,10 @@ import { siteInfo } from '../data/info';
   }
 </style>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 <script>
+  // IMPORTAMOS LA DEPENDENCIA NATIVA AQUÍ
+  import { marked } from 'marked';
+
   document.addEventListener('astro:page-load', () => {
     const form = document.getElementById('consulta-form');
     const input = document.getElementById('consulta-input') as HTMLInputElement;
@@ -159,11 +160,9 @@ import { siteInfo } from '../data/info';
     const initialQuery = urlParams.get('q');
     
     const executeSearch = async (query: string) => {
-      
-      // COMANDO OCULTO PARA DESARROLLADOR: /reset
       if (query === '/reset') {
         localStorage.removeItem('ml_ai_uses');
-        alert('Comando ejecutado: El contador de consultas de IA ha sido reiniciado a 0.');
+        alert('Contador reiniciado a 0.');
         input.value = '';
         return;
       }
@@ -171,7 +170,7 @@ import { siteInfo } from '../data/info';
       let uses = parseInt(localStorage.getItem('ml_ai_uses') || '0');
       
       if (uses >= 3) {
-        form.classList.add('hidden'); // Oculta el buscador
+        form.classList.add('hidden');
         resultState?.classList.add('hidden');
         loadingState?.classList.add('hidden');
         limitState?.classList.remove('hidden');
@@ -179,7 +178,7 @@ import { siteInfo } from '../data/info';
         return;
       }
 
-      form.classList.add('hidden'); // Desaparece el componente buscador de la web al enviar
+      form.classList.add('hidden');
       resultState?.classList.add('hidden');
       limitState?.classList.add('hidden');
       loadingState?.classList.remove('hidden');
@@ -199,17 +198,17 @@ import { siteInfo } from '../data/info';
         if (response.ok) {
           const data = await response.json();
           if (resultState) {
-            // @ts-ignore
-            resultState.innerHTML = marked.parse(data.answer);
+            // USAMOS LA LIBRERÍA IMPORTADA NATIVAMENTE
+            resultState.innerHTML = marked.parse(data.answer) as string;
           }
           localStorage.setItem('ml_ai_uses', (uses + 1).toString());
         } else {
-          if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error en la conexión. Por favor, intente contactarnos vía WhatsApp.</p>';
+          if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error de conexión.</p>';
         }
       } catch (error) {
         loadingState?.classList.add('hidden');
         resultState?.classList.remove('hidden');
-        if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error de red. Verifique su conexión o contáctenos directamente.</p>';
+        if(resultState) resultState.innerHTML = '<p class="text-brand-primary font-bold">Error de red.</p>';
       }
     };
 

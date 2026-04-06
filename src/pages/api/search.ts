@@ -1,6 +1,6 @@
 // src/pages/api/search.ts
 import type { APIRoute } from 'astro';
-import { faqs } from '../../data/faq';
+import { faqs } from '../../data/chatbot';
 import { siteInfo } from '../../data/info';
 
 export const prerender = false; 
