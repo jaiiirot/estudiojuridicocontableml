@@ -4,30 +4,13 @@ import Layout from '../layouts/Layout.astro';
 import AboutHero from '../components/about/AboutHero.astro';
 import Philosophy from '../components/about/Philosophy.astro';
 import CoreValues from '../components/about/CoreValues.astro';
-import { siteInfo } from '../data/info';
+// 1. Importas el nuevo componente
+import Team from '../components/about/Team.astro'; 
 ---
 
-<Layout 
-  title="Nuestra Firma | Identidad y Valores | M&L Estudio"
-  description="Conozca la misión y visión del Estudio M&L. Abordaje interdisciplinario, transparencia estricta y atención personalizada en Avellaneda."
->
-  
+<Layout title="Nosotros | Estudio Jurídico Contable M&L" description="Conozca al equipo de profesionales detrás del Estudio Jurídico Contable M&L.">
   <AboutHero />
-  
+  <Team />
   <Philosophy />
-  
   <CoreValues />
-
-  <section class="py-24 bg-brand-dark text-center">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Confíe su gestión a los especialistas</h2>
-      <p class="text-gray-300 font-light text-lg mb-10 max-w-2xl mx-auto">
-        Nuestro equipo está preparado para brindarle el respaldo legal y contable que requiere su tranquilidad. Conversemos sobre su situación.
-      </p>
-      <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20deseo%20agendar%20una%20reunión%20con%20el%20estudio.`} target="_blank" class="inline-block bg-white text-brand-dark px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-white transition-colors rounded-sm">
-        Agendar Entrevista
-      </a>
-    </div>
-  </section>
-
 </Layout>

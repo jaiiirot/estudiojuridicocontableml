@@ -1,7 +1,6 @@
 ---
 // src/pages/especialidades/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import Footer from '../../components/Footer.astro';
 import SpecialtyHero from '../../components/especialidades/SpecialtyHero.astro';
 import SpecialtyDetails from '../../components/especialidades/SpecialtyDetails.astro';
 import { services } from '../../data/services';
@@ -14,7 +13,18 @@ export function getStaticPaths() {
   }));
 }
 
-const { service } = Astro.props;
+// 1. Obtenemos el slug de la URL
+const { slug } = Astro.params;
+
+// 2. Intentamos tomar el servicio de las props (SSG) o lo buscamos manualmente (SSR/Dev)
+const service = Astro.props.service || services.find(s => s.id === slug);
+
+// 3. Protección anti-crasheos: Si alguien entra a una especialidad que no existe, va al 404
+if (!service) {
+  return Astro.redirect('/404');
+}
+
+// Ahora es seguro acceder a service.title
 const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento sobre ${service.title}.`);
 ---
 
