@@ -5,7 +5,11 @@ import { siteInfo } from '../../data/info';
 
 export const prerender = false; 
 
-// Función de respaldo estratégica: Crea una mini página de ventas en Markdown
+// 1. SISTEMA DE RATE LIMITING EN MEMORIA (Mitiga ataques DoS)
+const rateLimit = new Map<string, { count: number; timestamp: number }>();
+const LIMIT_PER_MINUTE = 6; // Límite de consultas por minuto por IP
+
+// Función de respaldo estratégica
 function buscarEnFaqs(query: string): string {
   const q = query.toLowerCase();
   let respuestaEncontrada = null;
@@ -17,49 +21,58 @@ function buscarEnFaqs(query: string): string {
     }
   }
 
-  // Si encuentra coincidencia en las FAQs, da la info y agrega valor de venta
   if (respuestaEncontrada) {
-    return `### Información Preliminar sobre su Consulta
-    
-${respuestaEncontrada}
-
----
-### ¿Por qué confiar su caso al Estudio M&L?
-Comprendemos que los conflictos legales y las obligaciones contables generan estrés. Nuestro diferencial es absorber esa carga por usted.
-
-- **Estrategia a medida:** Analizamos los vacíos legales y fiscales para su beneficio.
-- **Transparencia absoluta:** Le explicamos cada escenario posible con claridad.
-- **Acompañamiento constante:** Mantenemos un rol activo hasta la resolución de su caso.
-
-**Su tranquilidad es nuestra prioridad. Déjenos encargarnos del problema.**`;
+    return `### Información Preliminar sobre su Consulta\n\n${respuestaEncontrada}\n\n---\n### ¿Por qué confiar su caso al Estudio M&L?\nComprendemos que los conflictos legales y las obligaciones contables generan estrés. Nuestro diferencial es absorber esa carga por usted.\n\n- **Estrategia a medida:** Analizamos los vacíos legales y fiscales para su beneficio.\n- **Transparencia absoluta:** Le explicamos cada escenario posible con claridad.\n- **Acompañamiento constante:** Mantenemos un rol activo hasta la resolución de su caso.\n\n**Su tranquilidad es nuestra prioridad. Déjenos encargarnos del problema.**`;
   } 
   
-  // Si no encuentra nada, usa la psicología de la exclusividad y complejidad
-  return `### Análisis Profesional Estricto Requerido
-
-Su consulta presenta particularidades que exigen una **evaluación exhaustiva y confidencial** por parte de nuestro equipo de especialistas. 
-
-Para garantizar la máxima protección de su patrimonio o la resolución segura de su conflicto, no podemos emitir un dictamen automático. Es imperativo revisar los detalles concretos, plazos y documentación de su caso particular.
-
-**No deje su situación al azar ni deje pasar el tiempo. Un especialista está listo para diseñar su estrategia hoy mismo.**`;
+  return `### Análisis Profesional Estricto Requerido\n\nSu consulta presenta particularidades que exigen una **evaluación exhaustiva y confidencial** por parte de nuestro equipo de especialistas. \n\nPara garantizar la máxima protección de su patrimonio o la resolución segura de su conflicto, no podemos emitir un dictamen automático. Es imperativo revisar los detalles concretos, plazos y documentación de su caso particular.\n\n**No deje su situación al azar ni deje pasar el tiempo. Un especialista está listo para diseñar su estrategia hoy mismo.**`;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
-    const body = await request.json();
-    const query = body.query;
+    // 2. PROTECCIÓN CONTRA ATAQUES DE FUERZA BRUTA (Rate Limiting)
+    const ip = clientAddress || 'unknown';
+    const now = Date.now();
+    const windowStart = now - 60000; // 1 minuto
 
-    if (!query) {
-      return new Response(JSON.stringify({ error: 'Falta la consulta' }), { status: 400 });
+    const clientData = rateLimit.get(ip);
+    if (clientData && clientData.timestamp > windowStart) {
+      if (clientData.count >= LIMIT_PER_MINUTE) {
+        return new Response(JSON.stringify({ error: "Demasiadas peticiones. Intente en 1 minuto." }), { status: 429 });
+      }
+      clientData.count++;
+    } else {
+      rateLimit.set(ip, { count: 1, timestamp: now });
     }
 
+    // 3. VALIDACIÓN DE CABECERAS
+    const contentType = request.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      return new Response(JSON.stringify({ error: "Formato no soportado." }), { status: 415 });
+    }
+
+    const body = await request.json();
+    let query = body.query;
+
+    // 4. VALIDACIÓN DEL PAYLOAD (Límite estricto de caracteres)
+    if (!query || typeof query !== 'string') {
+      return new Response(JSON.stringify({ error: 'Falta la consulta o es inválida' }), { status: 400 });
+    }
+
+    if (query.length > 350) {
+      return new Response(JSON.stringify({ error: "La consulta excede el límite permitido de caracteres." }), { status: 413 });
+    }
+
+    // 5. SANITIZACIÓN BÁSICA DEL INPUT (Elimina símbolos extraños)
+    query = query.replace(/[<>{}|=`\\]/g, '').trim();
+
+    // --- CONEXIÓN A GROQ ---
     const apiKey = import.meta.env.GROQ_API_KEY;
     const context = faqs.map(f => `Palabras clave: ${f.keywords.join(', ')} -> Respuesta: ${f.answer}`).join('\n');
 
     let finalResponseText = '';
 
     if (apiKey) {
-      // Prompt mejorado con técnicas de Copywriting persuasivo
       const systemPrompt = `Eres el asistente legal y contable experto del ${siteInfo.name}. 
       Reglas estrictas de comportamiento:
       1. Responde SIEMPRE utilizando formato Markdown. Usa "###" para subtítulos, "**" para resaltar palabras clave, y viñetas ("-") para listas.
@@ -84,7 +97,7 @@ export const POST: APIRoute = async ({ request }) => {
               { role: "system", content: systemPrompt },
               { role: "user", content: query }
             ],
-            temperature: 0.2, // Temperatura baja para respuestas más precisas y formales
+            temperature: 0.2, 
             max_tokens: 500
           })
         });
@@ -93,7 +106,6 @@ export const POST: APIRoute = async ({ request }) => {
           const data = await groqResponse.json();
           const aiAnswer = data.choices[0].message.content;
           
-          // Si la IA confiesa no saber la respuesta, forzamos el Fallback de ventas
           if (aiAnswer.includes("requiere una auditoría legal o contable detallada")) {
              finalResponseText = buscarEnFaqs(query);
           } else {
@@ -110,7 +122,6 @@ export const POST: APIRoute = async ({ request }) => {
       finalResponseText = buscarEnFaqs(query);
     }
 
-    // Inyección final del CTA (Call To Action) hacia WhatsApp
     const whatsappText = encodeURIComponent(`Hola, realicé la siguiente consulta en su web y me gustaría avanzar con un asesoramiento profesional: "${query}"`);
     const finalMarkdown = `
 ${finalResponseText}
@@ -121,8 +132,7 @@ Nuestro equipo de especialistas está listo para realizar un análisis profundo 
 
 <a href="https://wa.me/${siteInfo.contact.whatsapp}?text=${whatsappText}" target="_blank" class="cta-whatsapp">
   Agendar Consulta con un Profesional
-</a>
-    `;
+</a>`;
 
     return new Response(JSON.stringify({ answer: finalMarkdown }), {
       status: 200, 
@@ -130,7 +140,7 @@ Nuestro equipo de especialistas está listo para realizar un análisis profundo 
     });
 
   } catch (error) {
-    console.error("ERROR CRÍTICO DEL SERVIDOR:", error);
+    console.error("Alerta de Seguridad o Error Interno:", error);
     return new Response(JSON.stringify({ error: 'Error interno del servidor' }), { status: 500 });
   }
 }

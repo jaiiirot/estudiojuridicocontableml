@@ -1,0 +1,241 @@
+---
+// src/components/consulta/SearchApp.astro
+import { siteInfo } from '../../data/info';
+---
+
+<section class="py-16 md:py-24 bg-white min-h-[50vh]">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div id="search-container" class="transition-all duration-500">
+        <form id="consulta-form" class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-brand-primary/20 to-brand-dark/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+          
+          <div class="relative bg-white border border-gray-200 rounded-xl shadow-sm p-2 flex flex-col md:flex-row md:items-center focus-within:border-brand-primary focus-within:ring-1 focus-within:ring-brand-primary transition-all">
+            <input type="text" id="consulta-input" placeholder="Ej: Me despidieron después de 5 años y me ofrecen la mitad..." class="w-full text-lg md:text-xl font-light text-gray-800 px-4 py-4 focus:outline-none bg-transparent placeholder-gray-400" autocomplete="off" autofocus />
+            <button type="submit" class="w-full md:w-auto mt-2 md:mt-0 bg-brand-dark text-white px-8 py-4 md:py-5 rounded-lg font-bold uppercase tracking-widest text-xs hover:bg-brand-primary transition-colors shadow-md flex items-center justify-center gap-2 flex-shrink-0">
+              <span>Analizar Caso</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+        </form>
+        <p class="text-center text-xs text-gray-400 mt-6 font-light tracking-wide">
+          Las respuestas generadas son orientativas y bajo ningún concepto reemplazan el patrocinio y asesoramiento profesional directo de la Firma M&L.
+        </p>
+    </div>
+
+    <div id="estado-carga" class="hidden flex-col items-center justify-center py-20">
+        <div class="relative w-20 h-20 flex items-center justify-center mb-6">
+          <div class="absolute inset-0 border-2 border-gray-100 rounded-full"></div>
+          <div class="absolute inset-0 border-2 border-brand-primary rounded-full border-t-transparent animate-spin"></div>
+          <svg class="w-8 h-8 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+        </div>
+        <h3 class="text-xl font-serif font-bold text-brand-dark mb-2 tracking-wide">Procesando Consulta</h3>
+        <span class="text-gray-500 font-light text-sm animate-pulse">Buscando coincidencia en jurisprudencia y normativa...</span>
+    </div>
+
+    <div id="resultado-container" class="hidden mt-4 opacity-0 transition-opacity duration-500">
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 border-b border-gray-200 pb-4 gap-4">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brand-primary block mb-1">Análisis Completado</span>
+            <h2 class="text-2xl font-serif font-bold text-brand-dark">Dictamen Preliminar</h2>
+          </div>
+          <button id="btn-nueva-consulta" class="text-xs text-gray-500 hover:text-brand-dark font-medium uppercase tracking-wider flex items-center gap-1 bg-gray-50 px-4 py-2 rounded-md hover:bg-gray-100 transition-colors border border-gray-200 w-fit">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+              Nueva Consulta
+          </button>
+        </div>
+        
+        <div id="estado-resultado" class="text-gray-700 font-light leading-relaxed"></div>
+
+        <div class="mt-16 bg-gray-50 border border-gray-100 p-8 md:p-10 rounded-xl text-center shadow-sm">
+          <span class="w-12 h-1 bg-brand-primary mx-auto block mb-6"></span>
+          <p class="text-brand-dark font-serif font-bold text-2xl mb-4">¿Requiere que tomemos su caso?</p>
+          <p class="text-gray-600 font-light mb-8 max-w-lg mx-auto text-sm">Nuestro equipo de estrategas legales está listo para iniciar las acciones correspondientes basadas en este diagnóstico.</p>
+          <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20realicé%20un%20análisis%20en%20su%20web%20y%20necesito%20avanzar%20con%20un%20especialista.`} target="_blank" class="inline-block bg-brand-dark text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-primary transition-colors shadow-lg">
+              Derivar a un Especialista
+          </a>
+        </div>
+    </div>
+
+    <div id="estado-limite" class="hidden flex-col items-center justify-center py-16 text-center">
+        <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-6 border border-gray-200">
+          <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        </div>
+        <h3 class="text-3xl font-serif font-bold text-brand-dark mb-4">Seguridad Activada</h3>
+        <p class="text-gray-600 mb-10 max-w-md mx-auto text-lg font-light leading-relaxed">
+          Ha alcanzado el límite diario de consultas preliminares. Para obtener respuestas definitivas y blindaje legal exacto, debe comunicarse con nuestra mesa de entrada.
+        </p>
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20he%20alcanzado%20el%20límite%20de%20consultas%20en%20su%20web%20y%20deseo%20hablar%20con%20un%20profesional.`} target="_blank" class="inline-block bg-brand-primary text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-colors shadow-xl">
+          Contactar por WhatsApp
+        </a>
+    </div>
+
+  </div>
+</section>
+
+<style is:global>
+  /* ESTILOS EDITORIALES PARA EL RESULTADO MARKDOWN */
+  #estado-resultado h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-brand-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 0.5rem;
+  }
+  #estado-resultado p { 
+    margin-bottom: 1.25rem; 
+    font-size: 1.1rem;
+  }
+  #estado-resultado strong { 
+    font-weight: 700; 
+    color: var(--color-brand-dark); 
+  }
+  #estado-resultado ul {
+    margin: 1.5rem 0;
+    padding-left: 0;
+    list-style: none;
+    background: #fafafa;
+    border: 1px solid #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  #estado-resultado li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+  }
+  #estado-resultado li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-brand-primary);
+    font-weight: bold;
+  }
+  #estado-resultado blockquote {
+    border-left: 4px solid var(--color-brand-primary);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: #4b5563;
+    background: #fff;
+    border-top: 1px solid #f3f4f6;
+    border-right: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+</style>
+<script>
+  import { marked } from 'marked';
+  import DOMPurify from 'dompurify'; // NUEVO: Importamos el sanitizador
+
+  document.addEventListener('astro:page-load', () => {
+    const searchContainer = document.getElementById('search-container');
+    const form = document.getElementById('consulta-form');
+    const input = document.getElementById('consulta-input') as HTMLInputElement;
+    const loadingState = document.getElementById('estado-carga');
+    const resultContainer = document.getElementById('resultado-container');
+    const resultState = document.getElementById('estado-resultado');
+    const limitState = document.getElementById('estado-limite');
+    const btnNueva = document.getElementById('btn-nueva-consulta');
+
+    if (!form || !input) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+
+    const showSection = (section: 'form' | 'loading' | 'result' | 'limit') => {
+      searchContainer?.classList.add('hidden');
+      loadingState?.classList.add('hidden');
+      loadingState?.classList.remove('flex');
+      resultContainer?.classList.add('hidden');
+      resultContainer?.classList.remove('opacity-100');
+      limitState?.classList.add('hidden');
+      limitState?.classList.remove('flex');
+
+      if (section === 'form') {
+        searchContainer?.classList.remove('hidden');
+        input.focus();
+      } else if (section === 'loading') {
+        loadingState?.classList.remove('hidden');
+        loadingState?.classList.add('flex');
+      } else if (section === 'result') {
+        resultContainer?.classList.remove('hidden');
+        setTimeout(() => resultContainer?.classList.add('opacity-100'), 50);
+      } else if (section === 'limit') {
+        limitState?.classList.remove('hidden');
+        limitState?.classList.add('flex');
+      }
+    };
+
+    const executeSearch = async (query: string) => {
+      if (query === '/reset') {
+        localStorage.removeItem('ml_ai_uses');
+        alert('Contador reiniciado con éxito.');
+        input.value = '';
+        window.history.replaceState({}, '', '/consulta');
+        showSection('form');
+        return;
+      }
+
+      let uses = parseInt(localStorage.getItem('ml_ai_uses') || '0');
+      if (uses >= 3) {
+        showSection('limit');
+        return;
+      }
+
+      showSection('loading');
+
+      try {
+        const response = await fetch('/api/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (resultState) {
+            // NUEVO: Sanitizamos el HTML antes de inyectarlo en la pantalla
+            const rawHTML = marked.parse(data.answer) as string;
+            resultState.innerHTML = DOMPurify.sanitize(rawHTML);
+          }
+          localStorage.setItem('ml_ai_uses', (uses + 1).toString());
+          showSection('result');
+        } else {
+          if(resultState) resultState.innerHTML = DOMPurify.sanitize('<p class="text-brand-primary font-bold">Error de conexión. Por favor intente más tarde o derive el caso por WhatsApp.</p>');
+          showSection('result');
+        }
+      } catch (error) {
+        if(resultState) resultState.innerHTML = DOMPurify.sanitize('<p class="text-brand-primary font-bold">Error de red. Verifique su conexión a internet.</p>');
+        showSection('result');
+      }
+    };
+
+    if (initialQuery) {
+      input.value = initialQuery;
+      executeSearch(initialQuery);
+    } else {
+      showSection('form'); 
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = input.value.trim();
+      if (query) {
+        window.history.replaceState({}, '', `/consulta?q=${encodeURIComponent(query)}`);
+        executeSearch(query);
+      }
+    });
+
+    btnNueva?.addEventListener('click', () => {
+      input.value = '';
+      window.history.replaceState({}, '', '/consulta');
+      showSection('form');
+    });
+  });
+</script>

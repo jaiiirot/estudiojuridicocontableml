@@ -1,6 +1,6 @@
 // src/data/chatbot.ts
 
-export const WA_NUMBER = "5491127890450";
+export const WA_NUMBER = import.meta.env.PUBLIC_WHATSAPP_NUMBER || "5491127890450";
 
 export const fallbackMessage = "Ese es un asunto que exige la intervención de estrategas de primer nivel. Como la firma líder de la región, estamos preparados para tomar el control de su caso y asegurar sus intereses.";
 

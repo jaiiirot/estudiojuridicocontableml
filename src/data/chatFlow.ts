@@ -1,6 +1,6 @@
 // src/data/chatFlow.ts
 
-export const WA_NUMBER = "5491127890450";
+const WA_NUMBER = import.meta.env.PUBLIC_WHATSAPP_NUMBER || "5491127890450";
 
 export interface ChatNode {
   message: string;

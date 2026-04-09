@@ -1,6 +1,7 @@
 ---
 // src/components/Navbar.astro
 import Icon from './ui/Icon.astro';
+import { siteInfo } from '../data/info'; // <-- AGREGAR ESTO
 
 const navLinks = [
   { name: 'Inicio', url: '/' },
@@ -21,7 +22,7 @@ const depContable = [
 ];
 ---
 
-<nav class="bg-white/95 backdrop-blur-md border-b border-gray-100 fixed w-full z-50 top-0 transition-all duration-300 shadow-sm">
+<nav class="bg-white/95 border-b border-gray-100 fixed w-full z-50 top-0 transition-all duration-300 shadow-sm">
   <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-24 items-center">
       
@@ -78,16 +79,16 @@ const depContable = [
         <div class="h-8 w-px bg-gray-200"></div> 
         
         <div class="flex items-center space-x-4">
-          <a href="https://www.instagram.com/estudiojuridicocontableml" target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-brand-primary transition-transform hover:-translate-y-1">
+          <a href={siteInfo.social.instagram} target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-brand-primary transition-transform hover:-translate-y-1">
             <Icon name="instagram" class="w-[18px] h-[18px]" />
           </a>
-          <a href="https://www.tiktok.com/@majomiguelez" target="_blank" aria-label="TikTok" class="text-gray-400 hover:text-black transition-transform hover:-translate-y-1">
+          <a href={siteInfo.social.tiktok} target="_blank" aria-label="TikTok" class="text-gray-400 hover:text-black transition-transform hover:-translate-y-1">
             <Icon name="tiktok" class="w-[18px] h-[18px]" />
           </a>
-          <a href="https://www.linkedin.com/company/estudiojuridicocontableml" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-[#0a66c2] transition-transform hover:-translate-y-1">
+          <a href={siteInfo.social.linkedin} target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-[#0a66c2] transition-transform hover:-translate-y-1">
             <Icon name="linkedin" class="w-[18px] h-[18px]" />
           </a>
-          <a href="https://wa.me/5491127890450" target="_blank" aria-label="WhatsApp" class="text-gray-400 hover:text-[#25D366] transition-transform hover:-translate-y-1">
+          <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-gray-400 hover:text-[#25D366] transition-transform hover:-translate-y-1">
             <Icon name="whatsapp" class="w-[18px] h-[18px]" />
           </a>
           
@@ -99,7 +100,7 @@ const depContable = [
       </div>
 
       <div class="lg:hidden flex items-center gap-4">
-        <a href="https://wa.me/5491127890450" target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
+        <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
           <Icon name="whatsapp" class="w-6 h-6" />
         </a>
         <a href="/consulta" class="text-brand-primary border border-brand-primary p-1.5 rounded-md hover:bg-brand-primary hover:text-white transition-colors" aria-label="Buscador">
