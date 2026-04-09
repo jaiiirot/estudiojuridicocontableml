@@ -1,16 +1,13 @@
-// astro.config.mjs
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless"; // Importa el adaptador de Vercel
 
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  output: "static",
-  
-  adapter: node({
-    mode: "standalone",
-  }),
+  output: "server", // Cambia static a server
+
+  adapter: vercel(), // Usa el adaptador de Vercel
 
   vite: {
     plugins: [tailwindcss()],
