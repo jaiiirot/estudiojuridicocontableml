@@ -1,14 +1,13 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel/serverless"; // Importa el adaptador de Vercel
-
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  output: "server", // Cambia static a server
-
-  adapter: vercel(), // Usa el adaptador de Vercel
-
+  // Agrega tu dominio o la URL que te dio Vercel aquí:
+  site: "https://estudiojuridicocontableml.vercel.app/", 
+  
+  output: "static",
+  
   vite: {
     plugins: [tailwindcss()],
   },
