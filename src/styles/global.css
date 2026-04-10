@@ -1,26 +1,50 @@
 /* src/styles/global.css */
+
 @import "tailwindcss";
 
 @theme {
-  /* Paleta Corporativa Principal */
-  --color-brand-primary: #960003;
-  --color-brand-secondary: #650101;
-  --color-brand-dark: #500712;
-/* 
-  --color-web-text: #ededed; 
+  /* 
+   * PALETA DE COLORES PARA WEB DE ABOGACÍA
+   * ------------------------------------------------------------
+   * Uso sugerido:
+   *
+   * --color-web-text: #ededed (gris muy claro)
+   *   → Texto principal sobre fondos oscuros. Ideal para párrafos, listados,
+   *     información de contacto y bloques de texto legales. Asegura alto contraste.
+   * 
+   * --color-web-background: #3b0000 (burdeos / granate oscuro)
+   *   → Fondo general del sitio. Transmite seriedad, tradición y solidez,
+   *     valores clave en el sector legal. Usar en body, headers y secciones principales.
+   * 
+   * --color-web-primary: #de9494 (rojiso)
+   *   → Elementos primarios: bordes de tarjetas, íconos de servicios,
+   *     fondos de citas legales o testimonios. Complementa al fondo oscuro.
+   * 
+   * --color-web-secondary: #650101 (rojo ladrillo oscuro)
+   *   → Secundario para botones secundarios, hover de enlaces,
+   *     detalles en tablas de honorarios o resaltado de fechas de plazos legales.
+   * 
+   * --color-web-accent: #dc3d3d (rojito claro)
+   *   → Acento para llamadas a la acción (consultas, contacto, agendar cita),
+   *     números de teléfono destacados, badges de "Especialista en", 
+   *     y elementos que necesiten atraer atención sin perder formalidad.
+   * 
+   * Recomendaciones tipográficas:
+   *   --font-sans: "Inter" → textos largos (avisos legales, políticas, artículos de blog).
+   *   --font-serif: "Playfair Display" → títulos, nombres de abogados, encabezados de áreas de práctica.
+   */
+
+  --color-web-text: #dbdbdb; 
   --color-web-background: #3b0000;
-  --color-web-primary: #d7d7d7;
+  --color-web-primary: #ffffff;
   --color-web-secondary: #650101;
-  --color-web-accent: #a15900; */
-  /* NUEVO: Color sutil para fondos de tarjetas o iconos (reemplaza a bg-red-50) */ 
-   --color-brand-light: #fef2f2; 
+  --color-web-accent: #820000;
 
   /* Tipografías */
   --font-sans: "Inter", sans-serif;
   --font-serif: "Playfair Display", serif;
 }
 
-/* Mejora de rendimiento: Scroll suave nativo */
 html {
   scroll-behavior: smooth;
 }

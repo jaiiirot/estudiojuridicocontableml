@@ -16,10 +16,10 @@ const depContable = [
 ];
 ---
 
-<footer class="bg-brand-dark pt-20 pb-10 font-sans relative overflow-hidden">
-  <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-primary to-transparent opacity-80"></div>
+<footer class="bg-web-background pt-20 pb-10 font-sans relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-web-primary to-transparent opacity-80"></div>
   
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-32 bg-brand-primary blur-[120px] opacity-30 pointer-events-none"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-32 bg-web-secondary blur-[120px] opacity-40 pointer-events-none"></div>
 
   <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
@@ -31,15 +31,15 @@ const depContable = [
             <img src="/logo.png" alt="Logo Estudio M&L" class="h-16 w-auto group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-500 brightness-0 invert" />
             <div class="flex flex-col justify-center">
               <span class="text-2xl font-serif font-bold text-white tracking-tight leading-none mb-1">M&L</span>
-              <span class="text-[0.65rem] font-sans font-bold text-brand-primary uppercase tracking-[0.2em] leading-none">Estudio Jurídico</span>
+              <span class="text-[0.65rem] font-sans font-bold text-web-primary uppercase tracking-[0.2em] leading-none">Estudio Jurídico</span>
             </div>
           </div>
         </a>
      
-        <p class="text-white/70 font-light leading-relaxed text-sm mb-8 pr-4">
+        <p class="text-web-text/80 font-light leading-relaxed text-sm mb-8 pr-4">
           Firma líder en Avellaneda. Brindamos blindaje patrimonial, estrategias legales implacables y optimización fiscal para empresas y particulares exigentes.
         </p>
-        <a href="/consulta" class="inline-flex items-center gap-2 text-brand-primary text-xs font-bold uppercase tracking-widest hover:text-white transition-colors group">
+        <a href="/consulta" class="inline-flex items-center gap-2 text-web-accent text-xs font-bold uppercase tracking-widest hover:text-white transition-colors group">
           Iniciar Análisis Preliminar
           <Icon name="rightarrow" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
         </a>
@@ -50,8 +50,8 @@ const depContable = [
         <ul class="space-y-4">
           {depJuridico.map((item) => (
             <li>
-              <a href={item.url} class="text-white/60 hover:text-white transition-all duration-300 text-sm font-light flex items-center gap-3 group hover:translate-x-1">
-                <span class="w-1.5 h-1.5 bg-brand-primary rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></span>
+              <a href={item.url} class="text-web-text/70 hover:text-white transition-all duration-300 text-sm font-light flex items-center gap-3 group hover:translate-x-1">
+                <span class="w-1.5 h-1.5 bg-web-primary rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></span>
                 {item.name}
               </a>
             </li>
@@ -64,8 +64,8 @@ const depContable = [
         <ul class="space-y-4">
           {depContable.map((item) => (
             <li>
-              <a href={item.url} class="text-white/60 hover:text-white transition-all duration-300 text-sm font-light flex items-center gap-3 group hover:translate-x-1">
-                <span class="w-1.5 h-1.5 bg-brand-primary rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></span>
+              <a href={item.url} class="text-web-text/70 hover:text-white transition-all duration-300 text-sm font-light flex items-center gap-3 group hover:translate-x-1">
+                <span class="w-1.5 h-1.5 bg-web-primary rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></span>
                 {item.name}
               </a>
             </li>
@@ -75,29 +75,29 @@ const depContable = [
 
       <div class="lg:col-span-3">
         <span class="text-white font-serif font-bold text-lg mb-6 block">Nuestra Sede</span>
-        <ul class="space-y-5 text-sm font-light text-white/60">
+        <ul class="space-y-5 text-sm font-light text-web-text/70">
           <li class="flex items-start gap-3 group">
-            <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            <span class="group-hover:text-white/90 transition-colors">Av. Pres. Bartolomé Mitre 2443,<br/>Avellaneda, Buenos Aires</span>
+            <svg class="w-5 h-5 text-web-primary flex-shrink-0 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span class="group-hover:text-white transition-colors">Av. Pres. Bartolomé Mitre 2443,<br/>Avellaneda, Buenos Aires</span>
           </li>
           <li class="flex items-center gap-3 group">
-            <svg class="w-5 h-5 text-brand-primary flex-shrink-0 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-            <span class="group-hover:text-white/90 transition-colors">{siteInfo.contact.whatsappDisplay}</span>
+            <svg class="w-5 h-5 text-web-primary flex-shrink-0 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span class="group-hover:text-white transition-colors">{siteInfo.contact.whatsappDisplay}</span>
           </li>
           <li class="flex items-start gap-3 group">
-            <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span class="group-hover:text-white/90 transition-colors">Lunes a Viernes<br/>12:00 a 18:00 hs</span>
+            <svg class="w-5 h-5 text-web-primary flex-shrink-0 mt-0.5 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span class="group-hover:text-white transition-colors">Lunes a Viernes<br/>12:00 a 18:00 hs</span>
           </li>
         </ul>
       </div>
 
     </div>
 
-    <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-web-secondary to-transparent mb-8"></div>
 
     <div class="flex flex-col md:flex-row justify-between items-center gap-6">
       
-      <div class="text-white/40 text-xs font-light text-center md:text-left flex flex-col gap-3">
+      <div class="text-web-text/50 text-xs font-light text-center md:text-left flex flex-col gap-3">
         <div>
           &copy; {new Date().getFullYear()} Estudio Jurídico Contable M&L. Todos los derechos reservados.<br class="md:hidden" />
           <span class="hidden md:inline"> | </span>
@@ -106,22 +106,22 @@ const depContable = [
           <a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a>
         </div>
         
-        <div class="text-[10px] text-white/40 uppercase tracking-widest font-medium">
+        <div class="text-[10px] text-web-text/40 uppercase tracking-widest font-medium">
           Diseño y Desarrollo de Software por 
-          <a href="https://norirstudio.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-white/80 transition-colors ml-1 font-bold">
+          <a href="https://norirstudio.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-web-primary hover:text-web-accent transition-colors ml-1 font-bold">
             Norir Studio
           </a>
         </div>
       </div>
 
      <div class="flex items-center space-x-4">
-        <a href={siteInfo.social.instagram} target="_blank" aria-label="Instagram" class="text-white/50 hover:text-white transition-all duration-300 hover:-translate-y-1 bg-white/5 border border-white/5 p-2.5 rounded-full hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+        <a href={siteInfo.social.instagram} target="_blank" aria-label="Instagram" class="text-web-text/60 hover:text-white transition-all duration-300 hover:-translate-y-1 bg-web-secondary/30 border border-web-secondary/50 p-2.5 rounded-full hover:bg-web-secondary hover:border-web-primary/50 hover:shadow-[0_0_15px_rgba(222,148,148,0.2)]">
           <Icon name="instagram" class="w-4 h-4" />
         </a>
-        <a href={siteInfo.social.tiktok} target="_blank" aria-label="TikTok" class="text-white/50 hover:text-white transition-all duration-300 hover:-translate-y-1 bg-white/5 border border-white/5 p-2.5 rounded-full hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+        <a href={siteInfo.social.tiktok} target="_blank" aria-label="TikTok" class="text-web-text/60 hover:text-white transition-all duration-300 hover:-translate-y-1 bg-web-secondary/30 border border-web-secondary/50 p-2.5 rounded-full hover:bg-web-secondary hover:border-web-primary/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
           <Icon name="tiktok" class="w-4 h-4" />
         </a>
-        <a href={siteInfo.social.linkedin} target="_blank" aria-label="LinkedIn" class="text-white/50 hover:text-[#0a66c2] transition-all duration-300 hover:-translate-y-1 bg-white/5 border border-white/5 p-2.5 rounded-full hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_15px_rgba(10,102,194,0.3)]">
+        <a href={siteInfo.social.linkedin} target="_blank" aria-label="LinkedIn" class="text-web-text/60 hover:text-[#0a66c2] transition-all duration-300 hover:-translate-y-1 bg-web-secondary/30 border border-web-secondary/50 p-2.5 rounded-full hover:bg-web-secondary hover:border-web-primary/50 hover:shadow-[0_0_15px_rgba(10,102,194,0.3)]">
           <Icon name="linkedin" class="w-4 h-4" />
         </a>
       </div>

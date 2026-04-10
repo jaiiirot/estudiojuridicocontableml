@@ -3,41 +3,41 @@
 import { services } from '../../data/services';
 ---
 
-<section class="py-32 bg-gray-50 border-t border-gray-200">
+<section class="py-32 bg-web-background border-t border-web-secondary/50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="flex flex-col lg:flex-row gap-16">
       
       <div class="lg:w-1/3 lg:sticky lg:top-32 h-fit">
-        <span class="text-brand-primary font-bold tracking-widest uppercase text-xs mb-4 block">Especialidades</span>
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">
+        <span class="text-web-primary font-bold tracking-widest uppercase text-xs mb-4 block">Especialidades</span>
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
           Nuestras Áreas de Práctica
         </h2>
-        <p class="text-gray-600 font-light text-lg mb-8">
+        <p class="text-web-text/90 font-light text-lg mb-8">
           Intervención precisa en las ramas más críticas del derecho y las finanzas. No tomamos casos, diseñamos soluciones.
         </p>
-        <a href="/especialidades/derecho-civil-y-comercial" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-primary hover:text-brand-dark transition-colors">
+        <a href="/especialidades/derecho-civil-y-comercial" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-web-accent hover:text-web-primary transition-colors">
           Ver detalle completo
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
       </div>
 
-      <div class="lg:w-2/3 border-t border-gray-200">
+      <div class="lg:w-2/3 border-t border-web-secondary">
         {services.map((service, index) => (
-          <a href={`/especialidades/${service.id}`} class="group block border-b border-gray-200 py-10 hover:bg-white transition-colors px-4 md:px-8 -mx-4 md:-mx-8">
+          <a href={`/especialidades/${service.id}`} class="group block border-b border-web-secondary py-10 hover:bg-web-secondary/30 transition-colors px-4 md:px-8 -mx-4 md:-mx-8">
             <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-              <span class="text-4xl font-serif font-light text-gray-300 group-hover:text-brand-primary transition-colors">
+              <span class="text-4xl font-serif font-light text-web-primary/30 group-hover:text-web-primary transition-colors">
                 0{index + 1}
               </span>
               <div class="flex-grow">
-                <h3 class="text-2xl font-serif font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition-colors">
+                <h3 class="text-2xl font-serif font-bold text-white mb-3 group-hover:text-web-primary transition-colors">
                   {service.title}
                 </h3>
-                <p class="text-gray-600 font-light leading-relaxed max-w-xl">
+                <p class="text-web-text/80 font-light leading-relaxed max-w-xl">
                   {service.shortDesc}
                 </p>
               </div>
-              <div class="hidden md:flex flex-shrink-0 w-12 h-12 rounded-full border border-gray-200 items-center justify-center group-hover:border-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all text-gray-400">
+              <div class="hidden md:flex flex-shrink-0 w-12 h-12 rounded-full border border-web-primary/30 items-center justify-center group-hover:border-web-accent group-hover:bg-web-accent group-hover:text-white transition-all text-web-primary/60">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </div>
             </div>

@@ -4,61 +4,62 @@
 
 <div id="chatbot-container" transition:persist="chatbot" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end font-sans">
   
-  <div id="chat-window" class="hidden w-[90vw] max-w-sm md:w-[400px] bg-white rounded-2xl shadow-2xl border border-gray-200 mb-4 overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right">
+  <div id="chat-window" class="hidden w-[90vw] max-w-sm md:w-[400px] bg-web-background rounded-2xl shadow-2xl border border-web-secondary mb-4 overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right">
     
-    <div class="bg-brand-dark text-white px-6 py-4 flex justify-between items-center shadow-sm z-10 border-b-4 border-brand-primary">
+    <div class="bg-web-secondary text-white px-6 py-4 flex justify-between items-center shadow-sm z-10 border-b-4 border-web-primary">
       <div class="flex items-center gap-3">
         <div class="relative flex-shrink-0">
           <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1.5 shadow-inner">
             <img src="/logo.png" alt="M&L Logo" class="w-full h-auto object-contain" />
           </div>
-          <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-web-secondary rounded-full"></span>
         </div>
         <div>
           <span class="block font-serif font-bold text-lg leading-none mb-1">Dirección M&L</span>
-          <span class="block text-[9px] text-gray-300 font-bold tracking-[0.15em] uppercase leading-none">La firma líder en línea</span>
+          <span class="block text-[9px] text-web-text/70 font-bold tracking-[0.15em] uppercase leading-none">La firma líder en línea</span>
         </div>
       </div>
       
       <div class="flex items-center gap-1">
-        <button id="clear-chat" class="text-gray-400 hover:text-white transition-colors focus:outline-none bg-white/5 p-2 rounded-full hover:bg-white/20" title="Reiniciar conversación">
+        <button id="clear-chat" class="text-web-text/60 hover:text-white transition-colors focus:outline-none bg-white/5 p-2 rounded-full hover:bg-white/10" title="Reiniciar conversación">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
         </button>
-        <button id="close-chat" class="text-gray-400 hover:text-white transition-colors focus:outline-none bg-white/5 p-2 rounded-full hover:bg-white/20" title="Cerrar ventana">
+        <button id="close-chat" class="text-web-text/60 hover:text-white transition-colors focus:outline-none bg-white/5 p-2 rounded-full hover:bg-white/10" title="Cerrar ventana">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
       </div>
     </div>
 
-    <div id="chat-messages" class="h-[400px] p-5 overflow-y-auto bg-gray-50 flex flex-col gap-4 text-sm scroll-smooth pb-8" style="scrollbar-width: thin;">
+    <div id="chat-messages" class="h-[400px] p-5 overflow-y-auto bg-web-background flex flex-col gap-4 text-sm scroll-smooth pb-8" style="scrollbar-width: thin;">
     </div>
 
-    <div id="typing-indicator" class="hidden px-5 pb-4 bg-gray-50 -mt-4 absolute bottom-[72px] left-0 w-full z-20">
-      <div class="bg-white border border-gray-100 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm w-fit flex gap-1.5 items-center">
-        <div class="w-1.5 h-1.5 bg-brand-primary/50 rounded-full animate-bounce"></div>
-        <div class="w-1.5 h-1.5 bg-brand-primary/50 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
-        <div class="w-1.5 h-1.5 bg-brand-primary/50 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+    <div id="typing-indicator" class="hidden px-5 pb-4 bg-web-background -mt-4 absolute bottom-[72px] left-0 w-full z-20">
+      <div class="bg-web-secondary border border-web-secondary/50 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm w-fit flex gap-1.5 items-center">
+        <div class="w-1.5 h-1.5 bg-web-primary/50 rounded-full animate-bounce"></div>
+        <div class="w-1.5 h-1.5 bg-web-primary/50 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+        <div class="w-1.5 h-1.5 bg-web-primary/50 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
       </div>
     </div>
 
-    <form id="chat-form" class="border-t border-gray-200 p-4 bg-white flex gap-3 relative z-30">
-      <input type="text" id="chat-input" placeholder="O escriba su consulta..." class="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all text-sm bg-gray-50 text-gray-800 placeholder-gray-400 font-light disabled:opacity-50 disabled:bg-gray-100" autocomplete="off" />
-      <button type="submit" id="chat-submit" class="bg-brand-dark text-white px-4 py-3 rounded-xl hover:bg-brand-primary transition-colors font-bold shadow-md flex items-center justify-center transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" title="Enviar consulta">
+    <form id="chat-form" class="border-t border-web-secondary/50 p-4 bg-web-background flex gap-3 relative z-30">
+      <input type="text" id="chat-input" placeholder="O escriba su consulta..." class="flex-1 px-4 py-3 border border-web-secondary/50 rounded-xl focus:outline-none focus:border-web-primary focus:ring-1 focus:ring-web-primary transition-all text-sm bg-web-secondary/30 text-white placeholder-web-text/50 font-light disabled:opacity-50 disabled:bg-web-secondary/10" autocomplete="off" />
+      <button type="submit" id="chat-submit" class="bg-web-accent text-white px-4 py-3 rounded-xl hover:bg-web-primary transition-colors font-bold shadow-md flex items-center justify-center transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" title="Enviar consulta">
         <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
       </button>
     </form>
     
   </div>
 
-  <button id="toggle-chat" class="w-16 h-16 bg-brand-dark rounded-full shadow-2xl flex items-center justify-center hover:bg-brand-primary transition-all duration-300 hover:scale-110 focus:outline-none group relative">
-    <div class="absolute inset-0 bg-brand-primary rounded-full animate-ping opacity-20"></div>
+  <button id="toggle-chat" class="w-16 h-16 bg-web-secondary border border-web-primary/30 rounded-full shadow-2xl flex items-center justify-center hover:bg-web-accent transition-all duration-300 hover:scale-110 focus:outline-none group relative">
+    <div class="absolute inset-0 bg-web-primary rounded-full animate-ping opacity-20"></div>
     <svg class="w-8 h-8 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
   </button>
 
 </div>
+
 <script>
   import { faqs, chatFlow, WA_NUMBER, fallbackMessage } from '../data/chatbot';
-  import DOMPurify from 'dompurify'; // NUEVO: Importamos el sanitizador
+  import DOMPurify from 'dompurify';
 
   let isChatInitialized = false;
   let isChatOpen = false;
@@ -104,12 +105,11 @@
 
     const renderBotMessage = (htmlContent: string) => {
       const msgDiv = document.createElement('div');
-      msgDiv.className = 'self-start bg-white border border-gray-100 p-5 rounded-2xl rounded-tl-none shadow-sm max-w-[90%] animate-fade-in-up text-gray-700';
+      msgDiv.className = 'self-start bg-web-secondary border border-web-secondary/50 p-5 rounded-2xl rounded-tl-none shadow-sm max-w-[90%] animate-fade-in-up text-web-text';
       
-      // NUEVO: Construimos el HTML y lo purificamos antes de inyectarlo
       const rawHTML = htmlContent + `
-        <div class="mt-4 text-[9px] text-gray-400 border-t border-gray-50 pt-2 flex justify-between items-center uppercase tracking-widest font-bold">
-          <span class="text-brand-primary">Firma M&L</span>
+        <div class="mt-4 text-[9px] text-web-text/50 border-t border-web-secondary/50 pt-2 flex justify-between items-center uppercase tracking-widest font-bold">
+          <span class="text-web-primary">Firma M&L</span>
           <span>${updateTime()}</span>
         </div>
       `;
@@ -121,12 +121,11 @@
 
     const renderUserMessage = (text: string) => {
       const msgDiv = document.createElement('div');
-      msgDiv.className = 'self-end bg-brand-dark text-white px-5 py-3 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] mt-2 mb-2 animate-fade-in-up';
+      msgDiv.className = 'self-end bg-web-accent text-white px-5 py-3 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] mt-2 mb-2 animate-fade-in-up';
       
-      // NUEVO: Sanitizamos fuertemente el texto que escribe el usuario
       const rawHTML = `
         <p class="text-sm font-light leading-relaxed">${text}</p>
-        <span class="block text-[9px] text-gray-400 text-right mt-1 font-bold">${updateTime()}</span>
+        <span class="block text-[9px] text-white/70 text-right mt-1 font-bold">${updateTime()}</span>
       `;
       msgDiv.innerHTML = DOMPurify.sanitize(rawHTML);
 
@@ -147,7 +146,6 @@
     const renderNode = (nodeId: string) => {
       const node = chatFlow[nodeId];
       if (!node) return;
-
       disablePreviousOptions();
       setLoadingState(true);
 
@@ -170,14 +168,12 @@
           
           node.options.forEach(opt => {
             const btn = document.createElement('button');
-            btn.className = 'text-left w-full bg-white border border-brand-primary/30 text-brand-dark px-4 py-3 rounded-xl text-sm font-medium hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all duration-300 shadow-sm';
+            btn.className = 'text-left w-full bg-web-secondary border border-web-primary/50 text-web-text px-4 py-3 rounded-xl text-sm font-medium hover:bg-web-accent hover:text-white hover:border-web-accent transition-all duration-300 shadow-sm';
             btn.textContent = opt.label;
-            
             btn.addEventListener('click', () => {
               renderUserMessage(opt.label);
               renderNode(opt.next);
             });
-            
             optionsDiv.appendChild(btn);
           });
           
@@ -203,6 +199,7 @@
       setTimeout(() => {
         setLoadingState(false);
         const normalizedInput = normalizeText(userTextRaw);
+       
         const foundFaq = faqs.find(faq => faq.keywords.some(kw => normalizedInput.includes(normalizeText(kw))));
         
         let responseText = foundFaq ? foundFaq.answer : fallbackMessage;
