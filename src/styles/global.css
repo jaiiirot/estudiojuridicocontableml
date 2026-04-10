@@ -3,46 +3,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* 
-   * PALETA DE COLORES PARA WEB DE ABOGACÍA
-   * ------------------------------------------------------------
-   * Uso sugerido:
-   *
-   * --color-web-text: #ededed (gris muy claro)
-   *   → Texto principal sobre fondos oscuros. Ideal para párrafos, listados,
-   *     información de contacto y bloques de texto legales. Asegura alto contraste.
-   * 
-   * --color-web-background: #3b0000 (burdeos / granate oscuro)
-   *   → Fondo general del sitio. Transmite seriedad, tradición y solidez,
-   *     valores clave en el sector legal. Usar en body, headers y secciones principales.
-   * 
-   * --color-web-primary: #de9494 (rojiso)
-   *   → Elementos primarios: bordes de tarjetas, íconos de servicios,
-   *     fondos de citas legales o testimonios. Complementa al fondo oscuro.
-   * 
-   * --color-web-secondary: #650101 (rojo ladrillo oscuro)
-   *   → Secundario para botones secundarios, hover de enlaces,
-   *     detalles en tablas de honorarios o resaltado de fechas de plazos legales.
-   * 
-   * --color-web-accent: #dc3d3d (rojito claro)
-   *   → Acento para llamadas a la acción (consultas, contacto, agendar cita),
-   *     números de teléfono destacados, badges de "Especialista en", 
-   *     y elementos que necesiten atraer atención sin perder formalidad.
-   * 
-   * Recomendaciones tipográficas:
-   *   --font-sans: "Inter" → textos largos (avisos legales, políticas, artículos de blog).
-   *   --font-serif: "Playfair Display" → títulos, nombres de abogados, encabezados de áreas de práctica.
-   */
+  /* PALETA DE COLORES PARA WEB DE ABOGACÍA */
 
-  --color-web-text: #dbdbdb; 
-  --color-web-background: #3b0000;
-  --color-web-primary: #ffffff;
-  --color-web-secondary: #650101;
-  --color-web-accent: #820000;
+  --color-web-text: #dbdbdb; /*→ Texto principal sobre fondos oscuros. Ideal para párrafos, listados, información de contacto y bloques de texto legales. Asegura alto contraste.*/
+  --color-web-background: #260000; /*→ Fondo general del sitio. Transmite seriedad, tradición y solidez, valores clave en el sector legal. Usar en body, headers y secciones principales.*/
+  --color-web-primary: #ffffff; /*→ Secundario para botones secundarios, hover de enlaces,detalles en tablas de honorarios o resaltado de fechas de plazos legales.*/
+  --color-web-secondary: #3b0000; /*→ Secundario para botones secundarios, hover de enlaces,detalles en tablas de honorarios o resaltado de fechas de plazos legales.*/
+  --color-web-accent: #650101; /*→ Acento para llamadas a la acción (consultas, contacto, agendar cita), números de teléfono destacados, badges de "Especialista en", y elementos que necesiten atraer atención sin perder formalidad.*/
 
   /* Tipografías */
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif; /*→ textos largos (avisos legales, políticas, artículos de blog).*/
+  --font-serif: "Playfair Display", serif; /*→ títulos, nombres de abogados, encabezados de áreas de práctica.*/
 }
 
 html {
