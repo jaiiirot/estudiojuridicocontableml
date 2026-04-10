@@ -6,9 +6,14 @@
   --color-brand-primary: #960003;
   --color-brand-secondary: #650101;
   --color-brand-dark: #500712;
-  
-  /* NUEVO: Color sutil para fondos de tarjetas o iconos (reemplaza a bg-red-50) */
-  --color-brand-light: #fef2f2; 
+/* 
+  --color-web-text: #ededed; 
+  --color-web-background: #3b0000;
+  --color-web-primary: #d7d7d7;
+  --color-web-secondary: #650101;
+  --color-web-accent: #a15900; */
+  /* NUEVO: Color sutil para fondos de tarjetas o iconos (reemplaza a bg-red-50) */ 
+   --color-brand-light: #fef2f2; 
 
   /* Tipografías */
   --font-sans: "Inter", sans-serif;
