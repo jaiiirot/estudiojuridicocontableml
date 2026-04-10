@@ -19,7 +19,7 @@ interface Props {
 const { 
   title, 
   description = "Estudio Jurídico y Contable M&L en Avellaneda. Especialistas en Derecho Civil, Familia, Laboral, Previsional y Gestión Contable para PyMES y Particulares.",
-  image = "/logo.png"
+  image = "/miniatura.png"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.estudiojuridicocontableml.vercel.app');
@@ -77,7 +77,7 @@ const schema = {
     
     <ClientRouter />
 
-    <link rel="icon" type="image/png" href="/logoblanco.png" />
+    <link rel="icon" type="image/png" href="/logorojo.png" />
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:type" content="website" />
