@@ -41,7 +41,7 @@ const featuredVideo = tiktokVideos[0];
           <a 
             href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20requiero%20una%20auditoría%20legal/contable.`} 
             target="_blank" 
-            class="group relative inline-flex items-center justify-center bg-web-accent text-white px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-web-primary hover:shadow-xl hover:shadow-web-primary/20"
+            class="group relative inline-flex items-center justify-center bg-web-accent text-white px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:bg-web-secondary hover:shadow-xl hover:shadow-web-primary/20"
           >
             <span class="relative z-10 flex items-center gap-3">
               Agendar Auditoría
@@ -72,20 +72,12 @@ const featuredVideo = tiktokVideos[0];
           >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent group-hover:bg-black/50 transition-colors duration-500"></div>
             
-            <div class="absolute inset-0 flex items-center justify-center z-10">
-              <div class="w-20 h-20 bg-web-accent text-white rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.5)] transform transition-all duration-300 group-hover:scale-110 group-hover:bg-web-primary pl-2">
+            <div class="absolute inset-0 flex items-center justify-center z-10 text-center">
+              <div class="w-20 h-20 bg-web-accent text-white rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.5)] transform transition-all duration-300 group-hover:scale-110 group-hover:bg-web-secondary pl-2 text-center">
                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               </div>
             </div>
 
-            <div class="absolute bottom-10 left-8 right-8 z-10">
-              <span class="inline-block bg-web-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 mb-3 shadow-md">
-                Video Destacado
-              </span>
-              <h3 class="text-white font-serif font-bold text-2xl md:text-3xl leading-tight line-clamp-3 drop-shadow-lg">
-                {featuredVideo.title}
-              </h3>
-            </div>
           </tiktok-video>
         </div>
         

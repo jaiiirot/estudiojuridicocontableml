@@ -7,32 +7,32 @@ import { siteInfo } from '../data/info';
 
 <Layout title="Contacto">
   
-  <header class="bg-gray-50 pt-32 pb-16 border-b border-gray-200">
+  <header class="bg-web-background pt-32 pb-16 border-b border-web-secondary/50">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Contacto</h1>
-      <p class="text-lg text-gray-600 font-light">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Contacto</h1>
+      <p class="text-lg text-web-text/80 font-light">
         Dejanos tu consulta y te contestaremos a la brevedad. Estamos aquí para brindarte el respaldo legal y contable que necesitás.
       </p>
     </div>
   </header>
 
-  <section class="py-20 bg-white">
+  <section class="py-20 bg-web-background">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
         
         <div class="space-y-10">
           <div>
-            <h2 class="text-2xl font-serif font-bold text-brand-dark mb-6">Nuestras Oficinas</h2>
-            <div class="space-y-6 text-gray-600 font-light text-lg">
+            <h2 class="text-2xl font-serif font-bold text-white mb-6">Nuestras Oficinas</h2>
+            <div class="space-y-6 text-web-text/80 font-light text-lg">
               <div class="flex items-start">
                 <p>
-                  <strong class="block text-gray-900 font-medium text-base mb-1">Dirección</strong>
+                  <strong class="block text-white font-medium text-base mb-1">Dirección</strong>
                   Av. Pres. Bartolomé Mitre 2443,<br /> Avellaneda, Bs. As.
                 </p>
               </div>
               <div class="flex items-start">
                 <p>
-                  <strong class="block text-gray-900 font-medium text-base mb-1">Horario de Atención</strong>
+                  <strong class="block text-white font-medium text-base mb-1">Horario de Atención</strong>
                   Lunes a Viernes de 13 a 18hs.
                 </p>
               </div>
@@ -40,19 +40,19 @@ import { siteInfo } from '../data/info';
           </div>
 
           <div>
-            <h2 class="text-2xl font-serif font-bold text-brand-dark mb-6">Comunicación Directa</h2>
-            <ul class="space-y-4 text-gray-600 font-light text-lg">
+            <h2 class="text-2xl font-serif font-bold text-white mb-6">Comunicación Directa</h2>
+            <ul class="space-y-4 text-web-text/80 font-light text-lg">
               <li class="flex items-center">
-                <a href="tel:01177108303" class="hover:text-brand-primary transition-colors">Teléfono: 77108303 </a>
+                <a href="tel:01177108303" class="hover:text-web-primary transition-colors">Teléfono: 77108303 </a>
               </li>
               <li class="flex items-center">
-                <a href={`https://wa.me/5491127890450`} class="hover:text-brand-primary transition-colors">WhatsApp: +54 9 11 2789-0450</a>
+                <a href={`https://wa.me/5491127890450`} class="hover:text-web-primary transition-colors">WhatsApp: +54 9 11 2789-0450</a>
               </li>
               <li class="flex items-center">
-                <a href="mailto:info@estudiojuridicocontableml.com" class="hover:text-brand-primary transition-colors">info@estudiojuridicocontableml.com </a>
+                <a href="mailto:info@estudiojuridicocontableml.com" class="hover:text-web-primary transition-colors">info@estudiojuridicocontableml.com </a>
               </li>
               <li class="flex items-center">
-                <a href="https://instagram.com/estudiojuridicocontableml" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors">
+                <a href="https://instagram.com/estudiojuridicocontableml" target="_blank" rel="noopener noreferrer" class="hover:text-web-primary transition-colors">
                   Instagram: @estudiojuridicocontableml
                 </a>
               </li>
@@ -60,39 +60,39 @@ import { siteInfo } from '../data/info';
           </div>
         </div>
 
-        <div class="bg-gray-50 p-8 md:p-10 rounded-2xl border border-gray-100 shadow-sm">
+        <div class="bg-web-secondary/30 p-8 md:p-10 rounded-2xl border border-web-secondary/50 shadow-sm">
           <form id="contacto-form" class="space-y-6">
             
             <div>
-              <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">Tu nombre (obligatorio)</label>
+              <label for="nombre" class="block text-sm font-medium text-web-text/90 mb-2">Tu nombre (obligatorio)</label>
               <input type="text" id="nombre" name="nombre" required 
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-colors outline-none bg-white" 
+                class="w-full px-4 py-3 rounded-lg border border-web-secondary/50 focus:ring-2 focus:ring-web-primary focus:border-web-primary transition-colors outline-none bg-web-secondary/40 text-white placeholder-web-text/40" 
                 placeholder="Ej. Juan Pérez">
             </div>
 
             <div>
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Tu correo electrónico (obligatorio)</label>
+              <label for="email" class="block text-sm font-medium text-web-text/90 mb-2">Tu correo electrónico (obligatorio)</label>
               <input type="email" id="email" name="email" required 
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-colors outline-none bg-white" 
+                class="w-full px-4 py-3 rounded-lg border border-web-secondary/50 focus:ring-2 focus:ring-web-primary focus:border-web-primary transition-colors outline-none bg-web-secondary/40 text-white placeholder-web-text/40" 
                 placeholder="juan@ejemplo.com">
             </div>
 
             <div>
-              <label for="asunto" class="block text-sm font-medium text-gray-700 mb-2">Asunto</label>
+              <label for="asunto" class="block text-sm font-medium text-web-text/90 mb-2">Asunto</label>
               <input type="text" id="asunto" name="asunto" 
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-colors outline-none bg-white" 
+                class="w-full px-4 py-3 rounded-lg border border-web-secondary/50 focus:ring-2 focus:ring-web-primary focus:border-web-primary transition-colors outline-none bg-web-secondary/40 text-white placeholder-web-text/40" 
                 placeholder="Ej. Consulta por sucesión">
             </div>
 
             <div>
-              <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-2">Tu mensaje</label>
+              <label for="mensaje" class="block text-sm font-medium text-web-text/90 mb-2">Tu mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="5" required
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-colors outline-none text-gray-800 bg-white resize-none" 
+                class="w-full px-4 py-3 rounded-lg border border-web-secondary/50 focus:ring-2 focus:ring-web-primary focus:border-web-primary transition-colors outline-none bg-web-secondary/40 text-white placeholder-web-text/40 resize-none" 
                 placeholder="Escribe tu consulta aquí..."></textarea>
             </div>
 
             <button type="submit" 
-              class="w-full bg-brand-primary text-white font-medium py-4 rounded-lg hover:bg-brand-secondary transition-colors shadow-md mt-4">
+              class="w-full bg-web-accent text-white font-medium py-4 rounded-lg hover:bg-web-secondary transition-colors shadow-md mt-4 cursor-pointer">
               Enviar consulta
             </button>
             
@@ -107,7 +107,6 @@ import { siteInfo } from '../data/info';
 </Layout>
 
 <script>
-  // Script de cliente (Vanilla JS) para manejar LocalStorage y validación
   document.addEventListener('astro:page-load', () => {
     const form = document.getElementById('contacto-form') as HTMLFormElement;
     if (!form) return;
@@ -115,37 +114,31 @@ import { siteInfo } from '../data/info';
     const inputs = form.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
     const statusMsg = document.getElementById('form-status');
 
-    // 1. Cargar datos del LocalStorage al inicializar
     inputs.forEach(input => {
       const savedValue = localStorage.getItem(`ml_draft_${input.name}`);
       if (savedValue) {
         input.value = savedValue;
       }
 
-      // 2. Escuchar cambios y guardar en LocalStorage
       input.addEventListener('input', (e) => {
         const target = e.target as HTMLInputElement | HTMLTextAreaElement;
         localStorage.setItem(`ml_draft_${target.name}`, target.value);
       });
     });
 
-    // 3. Manejar el envío
     form.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevenir recarga para demostración (Aquí iría tu fetch a la API)
+      e.preventDefault(); 
       
-      // Simular envío exitoso
       if(statusMsg) {
         statusMsg.textContent = "¡Mensaje enviado con éxito! Te contactaremos pronto.";
-        statusMsg.className = "text-sm text-center mt-4 text-green-600 font-medium block";
+        statusMsg.className = "text-sm text-center mt-4 text-green-400 font-medium block"; // Ajustado el verde para contraste oscuro
       }
 
-      // Limpiar LocalStorage y formulario
       inputs.forEach(input => {
         localStorage.removeItem(`ml_draft_${input.name}`);
         input.value = '';
       });
       
-      // Ocultar mensaje de éxito después de unos segundos
       setTimeout(() => {
         if(statusMsg) statusMsg.classList.add('hidden');
       }, 5000);

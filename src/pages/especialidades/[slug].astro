@@ -13,18 +13,13 @@ export function getStaticPaths() {
   }));
 }
 
-// 1. Obtenemos el slug de la URL
 const { slug } = Astro.params;
-
-// 2. Intentamos tomar el servicio de las props (SSG) o lo buscamos manualmente (SSR/Dev)
 const service = Astro.props.service || services.find(s => s.id === slug);
 
-// 3. Protección anti-crasheos: Si alguien entra a una especialidad que no existe, va al 404
 if (!service) {
   return Astro.redirect('/404');
 }
 
-// Ahora es seguro acceder a service.title
 const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento sobre ${service.title}.`);
 ---
 
@@ -40,20 +35,20 @@ const whatsappMensaje = encodeURIComponent(`Hola, quisiera recibir asesoramiento
     details={service.details} 
   />
 
-  <section class="py-24 bg-brand-dark text-center border-t-4 border-brand-primary">
+  <section class="bg-web-background pt-10 pb-20 border-b border-web-secondary/50 text-center">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">¿Requiere intervención inmediata?</h2>
-      <p class="text-gray-300 font-light text-lg mb-10 max-w-2xl mx-auto">
+      <p class="text-web-text/80 font-light text-lg mb-10 max-w-2xl mx-auto">
         Nuestro equipo de especialistas analizará su caso con absoluta confidencialidad para proponerle la mejor estrategia procesal o administrativa.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=${whatsappMensaje}`} 
            target="_blank" 
-           class="inline-block bg-white text-brand-dark px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-brand-primary hover:text-white transition-colors rounded-sm shadow-xl">
+           class="inline-block bg-web-accent text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-web-secondary transition-colors rounded-sm shadow-xl">
           Contactar por WhatsApp
         </a>
         <a href="/consulta" 
-           class="inline-block bg-transparent border border-gray-500 text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-white hover:bg-white/5 transition-colors rounded-sm">
+           class="inline-block bg-transparent border border-web-secondary text-web-text px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-web-secondary hover:bg-web-secondary transition-colors rounded-sm">
           Consulta Preliminar (IA)
         </a>
       </div>

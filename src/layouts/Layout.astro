@@ -22,7 +22,7 @@ const {
   image = "/logo.png"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.estudiojuridicocontableml.com.ar');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.estudiojuridicocontableml.vercel.app');
 
 const schema = {
   "@context": "https://schema.org",
@@ -102,7 +102,8 @@ const schema = {
   <body class="bg-white text-gray-900 font-sans antialiased selection:bg-brand-primary selection:text-white flex flex-col min-h-screen">
     <Navbar />
     
-    <main class="flex-grow">
+    <main class="flex-grow relative">
+       <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none"></div>
       <slot />
     </main>
     

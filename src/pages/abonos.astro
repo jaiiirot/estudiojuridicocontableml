@@ -17,20 +17,20 @@ import { siteInfo } from '../data/info';
   
   <TargetAudience />
 
-  <section class="py-24 bg-white text-center border-t border-gray-100">
+  <section class="py-24 bg-web-background text-center border-t border-web-secondary/30">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-6">Solicite un presupuesto a medida</h2>
-      <p class="text-gray-600 font-light text-lg mb-10 max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Solicite un presupuesto a medida</h2>
+      <p class="text-web-text/80 font-light text-lg mb-10 max-w-xl mx-auto">
         Cada cliente tiene necesidades únicas. Conversemos para estructurar el abono que mejor proteja su rentabilidad y patrimonio.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href={`https://wa.me/${siteInfo.contact.whatsapp}?text=Hola,%20quisiera%20consultar%20sobre%20los%20abonos%20y%20solicitar%20un%20presupuesto%20a%20medida.`} 
            target="_blank" 
-           class="inline-block bg-brand-primary text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-brand-dark transition-all duration-300 shadow-md">
+           class="inline-block bg-web-accent text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:bg-web-secondary transition-all duration-300 shadow-md">
           Cotizar por WhatsApp
         </a>
         <a href="/contacto" 
-           class="inline-block bg-white border border-gray-300 text-brand-dark px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-brand-dark hover:bg-gray-50 transition-all duration-300">
+           class="inline-block bg-web-secondary/50 border border-web-secondary text-white px-10 py-4 font-bold uppercase tracking-widest text-sm hover:border-web-primary hover:bg-web-secondary transition-all duration-300">
           Enviar Correo
         </a>
       </div>

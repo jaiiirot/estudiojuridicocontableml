@@ -8,25 +8,25 @@ interface Props {
 const { title, shortDesc, image } = Astro.props;
 ---
 
-<section class="bg-gray-50 pt-20 pb-20 border-b border-gray-200">
+<section class="bg-web-background pt-20 pb-20 border-b border-web-secondary/50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
       
       <div class="w-full lg:w-1/2">
-        <span class="text-brand-primary font-bold tracking-widest uppercase text-xs mb-4 block border-b border-gray-200 pb-2 inline-block">
+        <span class="text-web-primary font-bold tracking-widest uppercase text-xs mb-4 block border-b border-web-secondary/50 pb-2 inline-block">
           Área de Práctica
         </span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark mb-6 leading-tight">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
           {title}
         </h1>
-        <p class="text-lg text-gray-600 font-light leading-relaxed">
+        <p class="text-lg text-web-text/80 font-light leading-relaxed">
           {shortDesc}
         </p>
       </div>
 
       <div class="w-full lg:w-1/2">
         <div class="relative rounded-sm overflow-hidden shadow-xl aspect-[4/3] max-h-[500px]">
-          <div class="absolute inset-0 bg-brand-dark/10 mix-blend-multiply z-10"></div>
+          <div class="absolute inset-0 bg-web-background/30 mix-blend-multiply z-10"></div>
           <img src={image} alt={title} class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" loading="eager" />
         </div>
       </div>

@@ -9,41 +9,41 @@ interface Props {
 const { details } = Astro.props;
 ---
 
-<section class="py-24 bg-white">
+<section class="py-24 bg-web-background">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="mb-16 md:mb-24 text-center md:text-left">
-      <span class="text-brand-primary font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Diagnóstico y Resolución</span>
-      <h2 class="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Alcance de nuestra intervención</h2>
-      <p class="text-gray-500 font-light text-lg max-w-2xl">
+      <span class="text-web-primary font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Diagnóstico y Resolución</span>
+      <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">Alcance de nuestra intervención</h2>
+      <p class="text-web-text/80 font-light text-lg max-w-2xl">
         Conozca los conflictos que abordamos y la estrategia exacta con la que nuestra firma blinda sus intereses patrimoniales y familiares.
       </p>
     </div>
     
     <div class="space-y-0">
       {details.map((item, index) => (
-        <div class="flex flex-col lg:flex-row border-t border-gray-200 py-12 md:py-16 group hover:bg-gray-50 transition-colors px-4 -mx-4 sm:px-8 sm:-mx-8">
+        <div class="flex flex-col lg:flex-row border-t border-web-secondary/50 py-12 md:py-16 group hover:bg-web-secondary/20 transition-colors px-4 -mx-4 sm:px-8 sm:-mx-8">
           
           <div class="lg:w-5/12 lg:pr-16 mb-8 lg:mb-0">
             <div class="flex items-start mb-4">
-              <span class="text-brand-primary font-serif italic text-2xl mr-4 leading-none opacity-60">0{index + 1}.</span>
-              <h3 class="text-2xl md:text-3xl font-serif font-bold text-brand-dark leading-tight">{item.title}</h3>
+              <span class="text-web-primary font-serif italic text-2xl mr-4 leading-none opacity-60">0{index + 1}.</span>
+              <h3 class="text-2xl md:text-3xl font-serif font-bold text-white leading-tight">{item.title}</h3>
             </div>
             
             <div class="pl-10">
-              <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2 block">Marco Legal</span>
-              <p class="text-gray-500 font-light leading-relaxed text-base italic border-l-2 border-gray-200 pl-4">
+              <span class="text-[10px] uppercase tracking-widest text-web-text/50 font-bold mb-2 block">Marco Legal</span>
+              <p class="text-web-text/70 font-light leading-relaxed text-base italic border-l-2 border-web-secondary/50 pl-4">
                 {item.definition}
               </p>
             </div>
           </div>
           
-          <div class="lg:w-7/12 lg:pl-16 lg:border-l lg:border-brand-primary/20 flex flex-col justify-center">
-            <span class="text-[10px] uppercase tracking-widest text-brand-primary font-bold mb-4 block flex items-center">
+          <div class="lg:w-7/12 lg:pl-16 lg:border-l lg:border-web-primary/20 flex flex-col justify-center">
+            <span class="text-[10px] uppercase tracking-widest text-web-primary font-bold mb-4 block flex items-center">
               <svg class="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               Estrategia M&L
             </span>
-            <p class="text-gray-900 font-medium leading-relaxed text-lg md:text-xl">
+            <p class="text-white font-medium leading-relaxed text-lg md:text-xl group-hover:text-web-primary/90 transition-colors">
               {item.howWeHelp}
             </p>
           </div>

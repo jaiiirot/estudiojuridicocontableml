@@ -6,7 +6,8 @@ import { siteInfo } from '../data/info';
 const navLinks = [
   { name: 'Inicio', url: '/' },
   { name: 'Nosotros', url: '/nosotros' },
-  { name: 'Abonos', url: '/abonos' }
+  { name: 'Abonos', url: '/abonos' },
+  { name: 'Contacto', url: '/contacto' }
 ];
 
 const depJuridico = [
@@ -102,7 +103,7 @@ const depContable = [
         <a href={`https://wa.me/${siteInfo.contact.whatsapp}`} target="_blank" aria-label="WhatsApp" class="text-[#25D366]">
           <Icon name="whatsapp" class="w-6 h-6" />
         </a>
-        <a href="/consulta" class="text-web-primary border border-web-primary p-1.5 rounded-md hover:bg-web-primary hover:text-white transition-colors" aria-label="Buscador">
+        <a href="/consulta" class="text-web-primary border border-web-primary p-1.5 rounded-md hover:bg-web-secondary hover:text-white transition-colors" aria-label="Buscador">
           <Icon name="search" class="w-5 h-5" />
         </a>
         <button id="mobile-menu-button" type="button" class="text-white hover:text-web-primary focus:outline-none ml-1" aria-label="Abrir menú">

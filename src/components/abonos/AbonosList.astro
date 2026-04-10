@@ -2,70 +2,70 @@
 // src/components/abonos/AbonosList.astro
 ---
 
-<section class="py-24 bg-white relative z-20 -mt-10">
+<section class="py-24 bg-web-background relative z-20 -mt-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
-      <div class="bg-white border border-gray-200 p-10 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
-        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors">Abono Contable</h3>
-        <p class="text-gray-500 font-light text-sm mb-8 h-12">Orden fiscal y liquidaciones al día para evitar multas de AFIP.</p>
+      <div class="bg-web-secondary/30 border border-web-secondary/50 p-10 rounded-xl shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-web-primary/50 transition-all flex flex-col group">
+        <h3 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-web-primary transition-colors">Abono Contable</h3>
+        <p class="text-web-text/60 font-light text-sm mb-8 h-12">Orden fiscal y liquidaciones al día para evitar multas de AFIP.</p>
         
         <ul class="space-y-4 mb-10 flex-grow">
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Liquidación de impuestos mensuales
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Liquidación de impuestos mensuales
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Liquidación de sueldos y cargas
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Liquidación de sueldos y cargas
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Asesoramiento a Monotributistas
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Asesoramiento a Monotributistas
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Balances y estados contables
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Balances y estados contables
           </li>
         </ul>
       </div>
 
-      <div class="bg-brand-dark border border-brand-dark p-10 rounded-xl shadow-2xl flex flex-col relative transform md:-translate-y-4">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full">
+      <div class="bg-web-secondary border border-web-primary/50 p-10 rounded-xl shadow-[0_10px_40px_rgba(222,148,148,0.15)] flex flex-col relative transform md:-translate-y-4">
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-web-accent text-white text-[10px] font-bold uppercase tracking-widest py-1 px-4 rounded-full shadow-lg">
           Recomendado
         </div>
         <h3 class="text-2xl font-serif font-bold text-white mb-2">Abono Integral</h3>
-        <p class="text-gray-300 font-light text-sm mb-8 h-12">Blindaje absoluto. Sinergia perfecta entre el área legal y contable.</p>
+        <p class="text-web-text/90 font-light text-sm mb-8 h-12">Blindaje absoluto. Sinergia perfecta entre el área legal y contable.</p>
         
-        <ul class="space-y-4 mb-10 flex-grow border-t border-white/10 pt-6">
-          <li class="flex items-start text-sm text-gray-200">
-            <span class="text-brand-primary mr-3 font-bold">✓</span> Toda la cobertura contable
+        <ul class="space-y-4 mb-10 flex-grow border-t border-web-primary/20 pt-6">
+          <li class="flex items-start text-sm text-web-text">
+            <span class="text-web-primary mr-3 font-bold">✓</span> Toda la cobertura contable
           </li>
-          <li class="flex items-start text-sm text-gray-200">
-            <span class="text-brand-primary mr-3 font-bold">✓</span> Toda la cobertura jurídica
+          <li class="flex items-start text-sm text-web-text">
+            <span class="text-web-primary mr-3 font-bold">✓</span> Toda la cobertura jurídica
           </li>
-          <li class="flex items-start text-sm text-gray-200">
-            <span class="text-brand-primary mr-3 font-bold">✓</span> Redacción de contratos comerciales
+          <li class="flex items-start text-sm text-web-text">
+            <span class="text-web-primary mr-3 font-bold">✓</span> Redacción de contratos comerciales
           </li>
-          <li class="flex items-start text-sm text-gray-200">
-            <span class="text-brand-primary mr-3 font-bold">✓</span> Auditoría preventiva bimestral
+          <li class="flex items-start text-sm text-web-text">
+            <span class="text-web-primary mr-3 font-bold">✓</span> Auditoría preventiva bimestral
           </li>
         </ul>
       </div>
 
-      <div class="bg-white border border-gray-200 p-10 rounded-xl shadow-sm hover:shadow-xl transition-shadow flex flex-col group">
-        <h3 class="text-2xl font-serif font-bold text-gray-900 mb-2 group-hover:text-brand-primary transition-colors">Abono Jurídico</h3>
-        <p class="text-gray-500 font-light text-sm mb-8 h-12">Defensa preventiva y respuesta inmediata ante conflictos legales.</p>
+      <div class="bg-web-secondary/30 border border-web-secondary/50 p-10 rounded-xl shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-web-primary/50 transition-all flex flex-col group">
+        <h3 class="text-2xl font-serif font-bold text-white mb-2 group-hover:text-web-primary transition-colors">Abono Jurídico</h3>
+        <p class="text-web-text/60 font-light text-sm mb-8 h-12">Defensa preventiva y respuesta inmediata ante conflictos legales.</p>
         
         <ul class="space-y-4 mb-10 flex-grow">
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Consultas legales ilimitadas
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Consultas legales ilimitadas
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Gestión de morosos e intimaciones
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Gestión de morosos e intimaciones
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Asesoramiento en derecho laboral
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Asesoramiento en derecho laboral
           </li>
-          <li class="flex items-start text-sm text-gray-700">
-            <span class="text-brand-primary mr-3">✓</span> Representación en mediaciones
+          <li class="flex items-start text-sm text-web-text/80">
+            <span class="text-web-primary mr-3">✓</span> Representación en mediaciones
           </li>
         </ul>
       </div>
